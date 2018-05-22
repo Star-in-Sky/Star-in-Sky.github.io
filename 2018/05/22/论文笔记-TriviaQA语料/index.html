@@ -79,20 +79,23 @@
 
 
 
-<meta name="description" content="从16年发布的SQuAD语料之后，阅读理解领域的相关研究取得了突飞猛进的发展，在SQuAD语料上，多个模型效果超越人类性能指标。随后，有多个阅读理解语料(MSMARCO/DuReader/TriviaQA)被提出,在SQuAD语料基础上进一步拓宽了阅读理解任务的复杂度（场景或问题越加贴近实际场景），今天我主要对TriviaQA语料进行分析。">
+<meta name="description" content="从16年发布的SQuAD语料之后，阅读理解领域的相关研究取得了突飞猛进的发展，在SQuAD语料上，多个模型效果超越人类性能指标。随后，有多个阅读理解语料(MSMARCO/DuReader/TriviaQA)被提出,在SQuAD语料基础上进一步拓宽了阅读理解任务的复杂度（场景或问题越加贴近实际场景），今天我主要对TriviaQA语料进行分析。(论文链接, 数据下载)">
 <meta name="keywords" content="study">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文笔记-TriviaQA语料">
 <meta property="og:url" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/index.html">
 <meta property="og:site_name" content="Chen Xin">
-<meta property="og:description" content="从16年发布的SQuAD语料之后，阅读理解领域的相关研究取得了突飞猛进的发展，在SQuAD语料上，多个模型效果超越人类性能指标。随后，有多个阅读理解语料(MSMARCO/DuReader/TriviaQA)被提出,在SQuAD语料基础上进一步拓宽了阅读理解任务的复杂度（场景或问题越加贴近实际场景），今天我主要对TriviaQA语料进行分析。">
+<meta property="og:description" content="从16年发布的SQuAD语料之后，阅读理解领域的相关研究取得了突飞猛进的发展，在SQuAD语料上，多个模型效果超越人类性能指标。随后，有多个阅读理解语料(MSMARCO/DuReader/TriviaQA)被提出,在SQuAD语料基础上进一步拓宽了阅读理解任务的复杂度（场景或问题越加贴近实际场景），今天我主要对TriviaQA语料进行分析。(论文链接, 数据下载)">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/1.png">
 <meta property="og:image" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/2.png">
-<meta property="og:updated_time" content="2018-05-22T05:47:06.545Z">
+<meta property="og:image" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/3.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/4.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/5.png">
+<meta property="og:updated_time" content="2018-05-22T06:09:56.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记-TriviaQA语料">
-<meta name="twitter:description" content="从16年发布的SQuAD语料之后，阅读理解领域的相关研究取得了突飞猛进的发展，在SQuAD语料上，多个模型效果超越人类性能指标。随后，有多个阅读理解语料(MSMARCO/DuReader/TriviaQA)被提出,在SQuAD语料基础上进一步拓宽了阅读理解任务的复杂度（场景或问题越加贴近实际场景），今天我主要对TriviaQA语料进行分析。">
+<meta name="twitter:description" content="从16年发布的SQuAD语料之后，阅读理解领域的相关研究取得了突飞猛进的发展，在SQuAD语料上，多个模型效果超越人类性能指标。随后，有多个阅读理解语料(MSMARCO/DuReader/TriviaQA)被提出,在SQuAD语料基础上进一步拓宽了阅读理解任务的复杂度（场景或问题越加贴近实际场景），今天我主要对TriviaQA语料进行分析。(论文链接, 数据下载)">
 <meta name="twitter:image" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/1.png">
 
 
@@ -366,7 +369,7 @@
       
 
       
-        <p>从16年发布的SQuAD语料之后，阅读理解领域的相关研究取得了突飞猛进的发展，在SQuAD语料上，多个模型效果超越人类性能指标。随后，有多个阅读理解语料(MSMARCO/DuReader/TriviaQA)被提出,在SQuAD语料基础上进一步拓宽了阅读理解任务的复杂度（场景或问题越加贴近实际场景），今天我主要对TriviaQA语料进行分析。<br><a id="more"></a></p>
+        <p>从16年发布的SQuAD语料之后，阅读理解领域的相关研究取得了突飞猛进的发展，在SQuAD语料上，多个模型效果超越人类性能指标。随后，有多个阅读理解语料(MSMARCO/DuReader/TriviaQA)被提出,在SQuAD语料基础上进一步拓宽了阅读理解任务的复杂度（场景或问题越加贴近实际场景），今天我主要对TriviaQA语料进行分析。(<a href="http://xueshu.baidu.com/s?wd=paperuri:%2859ed6bbc099f6f36ad42377caf807346%29&amp;filter=sc_long_sign&amp;tn=SE_xueshusource_2kduw22v&amp;sc_vurl=http://arxiv.org/abs/1705.03551&amp;ie=utf-8&amp;sc_us=10216672048524353352" target="_blank" rel="noopener">论文链接</a>, <a href="http://nlp.cs.washington.edu/triviaqa/" target="_blank" rel="noopener">数据下载</a>)<br><a id="more"></a></p>
 <p>##统计<br>size:  650k+ （问题-答案-证据），平均每个问题对应6个证据，证据来源于wiki和web。</p>
 <p>具有以下特征：</p>
 <blockquote>
@@ -556,6 +559,9 @@
 </blockquote>
 </blockquote>
 </blockquote>
+<h2 id="实验分析："><a href="#实验分析：" class="headerlink" title="实验分析："></a>实验分析：</h2><p>论文中给出了基于传统机器学习（分类器）和深度学习（BiDAF）的两种方法，并且给出了对比。实验性能如下图：<br><img src="/2018/05/22/论文笔记-TriviaQA语料/3.png" alt="实验对比"></p>
+<p>除了论文给出的baseline实验结果，在<a href="https://competitions.codalab.org/competitions/17208#results" target="_blank" rel="noopener">官方</a>的榜单上，已经有很多团队做出了相应的成果，下面是实验榜单最新(当前时间)的结果：<br><img src="/2018/05/22/论文笔记-TriviaQA语料/4.png" alt="wiki数据上结果"></p>
+<p><img src="/2018/05/22/论文笔记-TriviaQA语料/5.png" alt="web数据上结果"></p>
 
       
     </div>
@@ -646,8 +652,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -707,6 +722,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验分析："><span class="nav-number">1.</span> <span class="nav-text">实验分析：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
