@@ -263,6 +263,239 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenxin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chen Xin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/22/论文笔记-TriviaQA语料/" itemprop="url">论文笔记-TriviaQA语料</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T11:15:41+08:00">
+                2018-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nlp/" itemprop="url" rel="index">
+                    <span itemprop="name">nlp</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nlp/论文笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">论文笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>从16年发布的SQuAD语料之后，阅读理解领域的相关研究取得了突飞猛进的发展，在SQuAD语料上，多个模型效果超越人类性能指标。随后，有多个阅读理解语料(MSMARCO/DuReader/TriviaQA)被提出,在SQuAD语料基础上进一步拓宽了阅读理解任务的复杂度（场景或问题越加贴近实际场景），今天我主要对TriviaQA语料进行分析。</p>
+<p>##统计<br>size:  650k+ （问题-答案-证据），平均每个问题对应6个证据，证据来源于wiki和web。</p>
+<p>具有以下特征：</p>
+<blockquote>
+<ul>
+<li>问题组成相对复杂</li>
+<li>在问题和答案证据之间有相当大的句法和词法差异</li>
+<li>需要更多句子的交叉推理才能找到答案</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>统计</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QA对总数</td>
+<td style="text-align:center">95956</td>
+</tr>
+<tr>
+<td>答案唯一个数</td>
+<td style="text-align:center">40478</td>
+</tr>
+<tr>
+<td>证据文本个数</td>
+<td style="text-align:center">662659</td>
+</tr>
+<tr>
+<td>问题平均长度</td>
+<td style="text-align:center">14</td>
+</tr>
+<tr>
+<td>文本平均长度</td>
+<td style="text-align:center">2895</td>
+</tr>
+</tbody>
+</table>
+<p>针对200个样例做的<strong>问题统计分析</strong>：<br>|属性|样例|统计|<br>|:——–:|:—–:|:—:|<br>|实体/问题|Which politician won the <strong>Nobel Peace Prize</strong> in 2009?|1.77/每个问题|<br>|包含描述答案所属细粒度类别短语|What <strong>fragrant essential oil</strong> is obtained from Damask Rose?|73.5%|<br>|包含描述答案粗粒度类别短语|<strong>Who</strong> won the Nobel Peace Prize in 2009?|15.5%|<br>|涉及时间推理|What was photographed for the first time in <strong>October 1959</strong>|34%|<br>|含有比较|What is the appropriate name of the <strong>largest</strong> type of frog?|9%|</p>
+<p>针对200个样例做的<strong>答案统计分析</strong>：<br>|类型|比例|<br>|:—:|:—:|<br>|数字型|4.17|<br>|自由文本|2.98|<br>|维基百科标题|92.85|<br>|人|32|<br>|地点|23|<br>|组织|5|<br>|杂项|40|</p>
+<p>针对<strong>证据文本的统计分析</strong><br>|描述|解释|wiki|web|<br>|–|:–:|:-:|:-:<br>|词形变异(同义词)|问题与答案之间的主要对应关系是同义词|41% |39%|<br>|||<br>|词形变异|问题与文件之间的主要对应关系需要常识或外部知识|17%|17%<br>|句法变化|在将问题解释为陈述形式之后，其句法依赖性结构不匹配答案句子的结构|69%|65%<br>|多句子|需要多句子推理|40%|35%<br>|列表/表格|答案在列表/表格之中|0|7%</p>
+<p>语料具体形式：</p>
+<blockquote>
+<p>Answer:</p>
+<blockquote>
+<p>Value: 从trivia网站获得的答案<br>Aliases(别名): 别名列表（来自Wikipedia和其他来源）。<br>NormalizedAliases(标准化别名): 上述的标准化的变体。如果预测答案属于此列表，则认为它是完全匹配的。<br>Type: 数字，Wikipedia实体或FreeForm<br>MatchedWikiEntityName: 仅在类型为WikipediaEntity时出现<br>NormalizedMatchedWikiEntityName: 仅在类型为WikipediaEntity时出现</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>EntityPages: 该问题的维基百科文档列表</p>
+<blockquote>
+<p>DocSource：search / tagme<br>Filename: Filename in “evidence/wikipedia” directory<br>Title: Wikipedia page title</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Question<br>QuestionId: 问题的唯一字母数字标识<br>QuestionSource: 该问题被抓取的网站<br>SearchResults: 包含答案实体的检索网页列表</p>
+<blockquote>
+<p>Description: 搜索片段<br>Filename:<br>Rank: 搜索输出排序<br>Title: 页面标题<br>Url: 网页链接</p>
+</blockquote>
+</blockquote>
+<p>具体样例如下：<br><img src="/2018/05/22/论文笔记-TriviaQA语料/1.png" alt="样例1"><br><img src="/2018/05/22/论文笔记-TriviaQA语料/2.png" alt="样例2"></p>
+<p>文件格式如下：</p>
+<blockquote>
+<p>trivia:</p>
+<blockquote>
+<p>qa:</p>
+<blockquote>
+<p>verified-web-dev.json: 论文中提及的人工标注的verified数据集<br>verified-wikipedia-dev.json: 同上<br>web-dev/train.json: 证据文件来源于搜索引擎<br>wikipedia-dev/train.json: 证据文件来源于wiki<br>web/wiki-test-without-answers.json: 测试集</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>evidence:</p>
+<blockquote>
+<p>wikipedia: 维基百科数据<br>web: 爬取的相关网页</p>
+</blockquote>
+</blockquote>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/18/Hello World/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -438,7 +671,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -449,7 +682,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -460,7 +693,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
