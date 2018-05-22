@@ -501,10 +501,6 @@
 <td style="text-align:center">39%</td>
 </tr>
 <tr>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
 <td>词形变异</td>
 <td style="text-align:center">问题与文件之间的主要对应关系需要常识或外部知识</td>
 <td style="text-align:center">17%</td>
@@ -534,19 +530,7 @@
 <blockquote>
 <p>Answer:</p>
 <blockquote>
-<p>Value: 从trivia网站获得的答案<br>Aliases(别名): 别名列表（来自Wikipedia和其他来源）。<br>NormalizedAliases(标准化别名): 上述的标准化的变体。如果预测答案属于此列表，则认为它是完全匹配的。<br>Type: 数字，Wikipedia实体或FreeForm<br>MatchedWikiEntityName: 仅在类型为WikipediaEntity时出现<br>NormalizedMatchedWikiEntityName: 仅在类型为WikipediaEntity时出现</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>EntityPages: 该问题的维基百科文档列表</p>
-<blockquote>
-<p>DocSource：search / tagme<br>Filename: Filename in “evidence/wikipedia” directory<br>Title: Wikipedia page title</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>Question<br>QuestionId: 问题的唯一字母数字标识<br>QuestionSource: 该问题被抓取的网站<br>SearchResults: 包含答案实体的检索网页列表</p>
-<blockquote>
-<p>Description: 搜索片段<br>Filename:<br>Rank: 搜索输出排序<br>Title: 页面标题<br>Url: 网页链接</p>
+<p>Value: 从trivia网站获得的答案<br>Aliases(别名): 别名列表（来自Wikipedia和其他来源）。<br>NormalizedAliases(标准化别名): 上述的标准化的变体。如果预测答案属于此列表，则认为它是完全匹配的。<br>Type: 数字，Wikipedia实体或FreeForm<br>MatchedWikiEntityName: 仅在类型为WikipediaEntity时出现<br>NormalizedMatchedWikiEntityName: 仅在类型为WikipediaEntity时出现<br>EntityPages: 该问题的维基百科文档列表<br>DocSource：search / tagme<br>Filename: Filename in “evidence/wikipedia” directory<br>Title: Wikipedia page title<br>Question<br>QuestionId: 问题的唯一字母数字标识<br>QuestionSource: 该问题被抓取的网站<br>SearchResults: 包含答案实体的检索网页列表<br>Description: 搜索片段<br>Filename:<br>Rank: 搜索输出排序<br>Title: 页面标题<br>Url: 网页链接</p>
 </blockquote>
 </blockquote>
 <p>具体样例如下：<br><img src="/2018/05/22/论文笔记-TriviaQA语料/1.png" alt="样例1"><br><img src="/2018/05/22/论文笔记-TriviaQA语料/2.png" alt="样例2"></p>
@@ -556,15 +540,7 @@
 <blockquote>
 <p>qa:</p>
 <blockquote>
-<p>verified-web-dev.json: 论文中提及的人工标注的verified数据集<br>verified-wikipedia-dev.json: 同上<br>web-dev/train.json: 证据文件来源于搜索引擎<br>wikipedia-dev/train.json: 证据文件来源于wiki<br>web/wiki-test-without-answers.json: 测试集</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>evidence:</p>
-<blockquote>
-<p>wikipedia: 维基百科数据<br>web: 爬取的相关网页</p>
+<p>verified-web-dev.json: 论文中提及的人工标注的verified数据集<br>verified-wikipedia-dev.json: 同上<br>web-dev/train.json: 证据文件来源于搜索引擎<br>wikipedia-dev/train.json: 证据文件来源于wiki<br>web/wiki-test-without-answers.json: 测试集<br>evidence:<br>wikipedia: 维基百科数据<br>web: 爬取的相关网页</p>
 </blockquote>
 </blockquote>
 </blockquote>
