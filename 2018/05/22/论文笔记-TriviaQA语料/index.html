@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/1.png">
 <meta property="og:image" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/2.png">
-<meta property="og:updated_time" content="2018-05-22T03:17:30.590Z">
+<meta property="og:updated_time" content="2018-05-22T03:23:41.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记-TriviaQA语料">
 <meta name="twitter:description" content="从16年发布的SQuAD语料之后，阅读理解领域的相关研究取得了突飞猛进的发展，在SQuAD语料上，多个模型效果超越人类性能指标。随后，有多个阅读理解语料(MSMARCO/DuReader/TriviaQA)被提出,在SQuAD语料基础上进一步拓宽了阅读理解任务的复杂度（场景或问题越加贴近实际场景），今天我主要对TriviaQA语料进行分析。 ##统计size:  650k+ （问题-答案-证据），">
@@ -406,9 +406,129 @@
 </tr>
 </tbody>
 </table>
-<p>针对200个样例做的<strong>问题统计分析</strong>：<br>|属性|样例|统计|<br>|:——–:|:—–:|:—:|<br>|实体/问题|Which politician won the <strong>Nobel Peace Prize</strong> in 2009?|1.77/每个问题|<br>|包含描述答案所属细粒度类别短语|What <strong>fragrant essential oil</strong> is obtained from Damask Rose?|73.5%|<br>|包含描述答案粗粒度类别短语|<strong>Who</strong> won the Nobel Peace Prize in 2009?|15.5%|<br>|涉及时间推理|What was photographed for the first time in <strong>October 1959</strong>|34%|<br>|含有比较|What is the appropriate name of the <strong>largest</strong> type of frog?|9%|</p>
-<p>针对200个样例做的<strong>答案统计分析</strong>：<br>|类型|比例|<br>|:—:|:—:|<br>|数字型|4.17|<br>|自由文本|2.98|<br>|维基百科标题|92.85|<br>|人|32|<br>|地点|23|<br>|组织|5|<br>|杂项|40|</p>
-<p>针对<strong>证据文本的统计分析</strong><br>|描述|解释|wiki|web|<br>|–|:–:|:-:|:-:<br>|词形变异(同义词)|问题与答案之间的主要对应关系是同义词|41% |39%|<br>|||<br>|词形变异|问题与文件之间的主要对应关系需要常识或外部知识|17%|17%<br>|句法变化|在将问题解释为陈述形式之后，其句法依赖性结构不匹配答案句子的结构|69%|65%<br>|多句子|需要多句子推理|40%|35%<br>|列表/表格|答案在列表/表格之中|0|7%</p>
+<p>针对200个样例做的<strong>问题统计分析</strong>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">样例</th>
+<th style="text-align:center">统计</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">实体/问题</td>
+<td style="text-align:center">Which politician won the <strong>Nobel Peace Prize</strong> in 2009?</td>
+<td style="text-align:center">1.77/每个问题</td>
+</tr>
+<tr>
+<td style="text-align:center">包含描述答案所属细粒度类别短语</td>
+<td style="text-align:center">What <strong>fragrant essential oil</strong> is obtained from Damask Rose?</td>
+<td style="text-align:center">73.5%</td>
+</tr>
+<tr>
+<td style="text-align:center">包含描述答案粗粒度类别短语</td>
+<td style="text-align:center"><strong>Who</strong> won the Nobel Peace Prize in 2009?</td>
+<td style="text-align:center">15.5%</td>
+</tr>
+<tr>
+<td style="text-align:center">涉及时间推理</td>
+<td style="text-align:center">What was photographed for the first time in <strong>October 1959</strong></td>
+<td style="text-align:center">34%</td>
+</tr>
+<tr>
+<td style="text-align:center">含有比较</td>
+<td style="text-align:center">What is the appropriate name of the <strong>largest</strong> type of frog?</td>
+<td style="text-align:center">9%</td>
+</tr>
+</tbody>
+</table>
+<p>针对200个样例做的<strong>答案统计分析</strong>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">比例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">数字型</td>
+<td style="text-align:center">4.17</td>
+</tr>
+<tr>
+<td style="text-align:center">自由文本</td>
+<td style="text-align:center">2.98</td>
+</tr>
+<tr>
+<td style="text-align:center">维基百科标题</td>
+<td style="text-align:center">92.85</td>
+</tr>
+<tr>
+<td style="text-align:center">人</td>
+<td style="text-align:center">32</td>
+</tr>
+<tr>
+<td style="text-align:center">地点</td>
+<td style="text-align:center">23</td>
+</tr>
+<tr>
+<td style="text-align:center">组织</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">杂项</td>
+<td style="text-align:center">40</td>
+</tr>
+</tbody>
+</table>
+<p>针对<strong>证据文本的统计分析</strong></p>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th style="text-align:center">解释</th>
+<th style="text-align:center">wiki</th>
+<th style="text-align:center">web</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>词形变异(同义词)</td>
+<td style="text-align:center">问题与答案之间的主要对应关系是同义词</td>
+<td style="text-align:center">41%</td>
+<td style="text-align:center">39%</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>词形变异</td>
+<td style="text-align:center">问题与文件之间的主要对应关系需要常识或外部知识</td>
+<td style="text-align:center">17%</td>
+<td style="text-align:center">17%</td>
+</tr>
+<tr>
+<td>句法变化</td>
+<td style="text-align:center">在将问题解释为陈述形式之后，其句法依赖性结构不匹配答案句子的结构</td>
+<td style="text-align:center">69%</td>
+<td style="text-align:center">65%</td>
+</tr>
+<tr>
+<td>多句子</td>
+<td style="text-align:center">需要多句子推理</td>
+<td style="text-align:center">40%</td>
+<td style="text-align:center">35%</td>
+</tr>
+<tr>
+<td>列表/表格</td>
+<td style="text-align:center">答案在列表/表格之中</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">7%</td>
+</tr>
+</tbody>
+</table>
 <p>语料具体形式：</p>
 <blockquote>
 <p>Answer:</p>
