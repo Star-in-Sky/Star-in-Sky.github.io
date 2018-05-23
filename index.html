@@ -376,59 +376,14 @@
 
       
         
-          
-            <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>MSMARCO 是微软在2016年发布的阅读理解语料，该语料是在squad提出之后发布的，所以该语料可以说进一步突破了squad语料在阅读理解任务上的一些限制，例如，MSMARCO语料对于一个问题有多个相关的文本段落，而squad语料每个问题对应一个确定的文本段落。</p>
-<p>MARCO是微软基于搜索引擎BING构建的大规模英文阅读理解数据集，包含10万个问题和20万篇不重复的文档。MARCO数据集中的问题全部来自于 BING 的搜索日志，根据用户在BING 中输入的真实问题模拟搜索引擎中的真实应用场景，是该领域最有应用价值的数据集之一。(<a href="http://www.msmarco.org/dataset.aspx" target="_blank" rel="noopener">官方</a>)</p>
-<h2 id="语料众览"><a href="#语料众览" class="headerlink" title="语料众览"></a>语料众览</h2><p>特征：</p>
-<blockquote>
-<ul>
-<li>所有问题都是真实的，匿名用户查询发布到必应搜索引擎，问题不会很简明，可能比较模糊。</li>
-<li>相关段落是来自网页</li>
-<li>所有答案是人给出的</li>
-<li>部分问答有多个答案</li>
-<li>部分问题没有答案</li>
-<li>所有的问题都有标注信息(查询意图：数字，实体，地点，人物，描述)</li>
-<li>每个问题对应10个段落，这10个段落是有排序的。</li>
-<li>论文中提到数据生成时做了质量控制，对于那些人也无法确定的问题做了控制。</li>
-</ul>
-</blockquote>
-<p>数据的构建处理：</p>
-<blockquote>
-<ol>
-<li>问题：训练分类器筛选合适的问题</li>
-<li>段落：通过一个IR机器学习系统挑选</li>
-<li>答案：人工判断生成</li>
-<li>查询意图标注：标注使用训练的多类别svm分类器，测试性能准确率为90.31%</li>
-</ol>
-</blockquote>
-<p>统计信息：</p>
-<ol>
-<li><p>针对问题类型的统计信息<br>|Query包含|比例 %|<br>|:—:|:—:|<br>|what|42.2|<br>|how|15.3|<br>|where|4.4|<br>|when|2.0|<br>|why|1.8|<br>|who|1.7|<br>|which|1.4|</p>
-</li>
-<li><p>针对答案类型的统计分布<br>|anser 类型| 问题占比 %|<br>|:—:|:—:|<br>|描述|52.6|<br>|数字|28.4|<br>|实体|10.5|<br>|地点|5.7|<br>|人物|2.7|</p>
-</li>
-</ol>
-<h2 id="论文实验分析"><a href="#论文实验分析" class="headerlink" title="论文实验分析"></a>论文实验分析</h2><h3 id="数据现象"><a href="#数据现象" class="headerlink" title="数据现象"></a>数据现象</h3><p>论文中提出答案类型不同的问题有着不一样现象：</p>
-<blockquote>
-<ul>
-<li>Yes/No的问题简单的二元分类</li>
-<li>实体类的问题答案一般是短语</li>
-<li>描述类哦问题答案一般比较长，需要多段落推理</li>
-</ul>
-</blockquote>
-<p>针对上述现象，论文中提出，针对不同的类别使用不同的评价方法</p>
-<blockquote>
-<ul>
-<li>使用ACC prf来评价数字类型的问题答案</li>
-<li>ROUGE-L和<a href="https://www.microsoft.com/en-us/research/publication/proposal-evaluating-answer-distillation-web-data/" target="_blank" rel="noopener">phrasing-aware</a>评价框架 来评价答案长的问题</li>
-</ul>
-</blockquote>
-<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><p>论文使用了两种类型的方法做了实验，分别是生成模型和完型填空语料上的模型<br><strong>生成模型实验</strong>：<br><img src="/2018/05/23/论文笔记-msmarco/ms1.png" alt=""></p>
-<p><strong>完型模型</strong><br><img src="/2018/05/23/论文笔记-msmarco/2.png" alt=""></p>
-<p>现有榜单性能：<br><img src="/2018/05/23/论文笔记-msmarco/3.png" alt=""></p>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>微软在初始发布了10W条的数据，在2018年4月23号又发布了100W级别的数据。</p>
-
-          
+          <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>MSMARCO 是微软在2016年发布的阅读理解语料，该语料是在squad提出之后发布的，所以该语料可以说进一步突破了squad语料在阅读理解任务上的一些限制，例如，MSMARCO语料对于一个问题有多个相关的文本段落，而squad语料每个问题对应一个确定的文本段落。<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/23/论文笔记-msmarco/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
