@@ -88,7 +88,7 @@
 <meta property="og:description" content="实验说明按照导师要求，使用texttiling技术对squad语料中的段落进行切分，将长段落切成多个小段落，重新构造语料进行R-net模型的训练。 动机：  一个长的段落， 一个短的段落，显然从长段落中抽取问题的答案要难些，为什么？ 我们分析，squad语料上的模型在最后一层输出层，是对段落中的每个词计算两个概率–答案的开始 、答案的结束。 段落长，单词多，要计算比较的概率值就多，段落短，计算比较">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/05/29/r-net实验记录/1.png">
-<meta property="og:updated_time" content="2018-05-30T14:44:41.855Z">
+<meta property="og:updated_time" content="2018-05-30T14:47:10.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="r-net实验记录">
 <meta name="twitter:description" content="实验说明按照导师要求，使用texttiling技术对squad语料中的段落进行切分，将长段落切成多个小段落，重新构造语料进行R-net模型的训练。 动机：  一个长的段落， 一个短的段落，显然从长段落中抽取问题的答案要难些，为什么？ 我们分析，squad语料上的模型在最后一层输出层，是对段落中的每个词计算两个概率–答案的开始 、答案的结束。 段落长，单词多，要计算比较的概率值就多，段落短，计算比较">
@@ -416,7 +416,7 @@
 </table>
 <p><strong>第一次结果分析：</strong></p>
 <blockquote>
-<p>我们清楚的看到，在r-net与bidaf上，使用texttiling切分段落后的语料训练的模型，整体性能都下降，bidaf模型整体性能大幅下降。具体原因是什么呢？看下图：<br><img src="/2018/05/29/r-net实验记录/1.png" alt="squad论文中语料分布"></p>
+<p>我们清楚的看到，在r-net与bidaf上，使用texttiling切分段落后的语料训练的模型，整体性能都下降，bidaf模型整体性能大幅下降。具体原因是什么呢？看下图(这是我一开始给出的可能会导致失败的理由！！！)：<br><img src="/2018/05/29/r-net实验记录/1.png" alt="squad论文中语料分布"></p>
 </blockquote>
 <blockquote>
 <p>我们能看到，该图表明，squad语料中有一定规模的问题答案是需要多句推理才能得到答案，而是要texttiling切分之后，这中类型的分布招到了破坏。</p>
@@ -425,7 +425,7 @@
 <blockquote>
 <p>这是因为，bidaf中使用了<strong>双向注意力机制</strong>，该注意力机制是分别从问题方向、段落方向进行注意力矩阵权重，在获得问题与段落的表示，当整体段落被切分之后，对于需要多句推理的段落亦或是上下文紧密相关的段落，双向注意力机制的计算受到了破坏。<br>而在r-net中，使用的是<strong>二层注意力Interaction模式</strong>，虽然第一层使用了问题到段落方向的注意力计算，获取融合问题信息的段落表示，texttiling切分也会破坏它的表示计算，但是在第二层对段落使用了自注意力机制，使得能够重新聚焦到答案附近的表示。这应该就是，为何r-net下降比bidaf低的原由。</p>
 </blockquote>
-<h2 id="导师要求在不同类别上进行测试-我只做了r-net，必然的失败还要去验证，NND"><a href="#导师要求在不同类别上进行测试-我只做了r-net，必然的失败还要去验证，NND" class="headerlink" title="导师要求在不同类别上进行测试(我只做了r-net，必然的失败还要去验证，NND)"></a>导师要求在不同类别上进行测试(我只做了r-net，必然的失败还要去验证，NND)</h2><p><strong>未切分训练的模型在未切分的dev测试结果</strong></p>
+<h2 id="导师要求在不同类别上进行测试-我只做了r-net，结果很明显"><a href="#导师要求在不同类别上进行测试-我只做了r-net，结果很明显" class="headerlink" title="导师要求在不同类别上进行测试(我只做了r-net，结果很明显)"></a>导师要求在不同类别上进行测试(我只做了r-net，结果很明显)</h2><p><strong>未切分训练的模型在未切分的dev测试结果</strong></p>
 <table>
 <thead>
 <tr>
@@ -775,7 +775,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验说明"><span class="nav-number">1.</span> <span class="nav-text">实验说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导师要求在不同类别上进行测试-我只做了r-net，必然的失败还要去验证，NND"><span class="nav-number">2.</span> <span class="nav-text">导师要求在不同类别上进行测试(我只做了r-net，必然的失败还要去验证，NND)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验说明"><span class="nav-number">1.</span> <span class="nav-text">实验说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导师要求在不同类别上进行测试-我只做了r-net，结果很明显"><span class="nav-number">2.</span> <span class="nav-text">导师要求在不同类别上进行测试(我只做了r-net，结果很明显)</span></a></li></ol></div>
             
 
           </div>
