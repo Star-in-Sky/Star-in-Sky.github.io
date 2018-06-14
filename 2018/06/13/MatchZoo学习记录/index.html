@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="study," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="MatchZoo是一个text match领域的tookit,由中科院几位学者研究开源工具，发表了SIGIR短文。首先，我先从Quora相似问题识别任务出发，探索整个MatchZoo的运行流程与机制。（未完待续！） 数据处理MatchZoo中有Quora的样例，在data/QuoraQP目录下有着相应的脚本与处理代码。我们来查看一下最主要的脚本内容： 12345678910111213141516">
+<meta name="keywords" content="study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MatchZoo学习记录">
+<meta property="og:url" content="http://yoursite.com/2018/06/13/MatchZoo学习记录/index.html">
+<meta property="og:site_name" content="Chen Xin">
+<meta property="og:description" content="MatchZoo是一个text match领域的tookit,由中科院几位学者研究开源工具，发表了SIGIR短文。首先，我先从Quora相似问题识别任务出发，探索整个MatchZoo的运行流程与机制。（未完待续！） 数据处理MatchZoo中有Quora的样例，在data/QuoraQP目录下有着相应的脚本与处理代码。我们来查看一下最主要的脚本内容： 12345678910111213141516">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-13T14:49:42.166Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MatchZoo学习记录">
+<meta name="twitter:description" content="MatchZoo是一个text match领域的tookit,由中科院几位学者研究开源工具，发表了SIGIR短文。首先，我先从Quora相似问题识别任务出发，探索整个MatchZoo的运行流程与机制。（未完待续！） 数据处理MatchZoo中有Quora的样例，在data/QuoraQP目录下有着相应的脚本与处理代码。我们来查看一下最主要的脚本内容： 12345678910111213141516">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/13/MatchZoo学习记录/"/>
+
+
+
+
+
+  <title>MatchZoo学习记录 | Chen Xin</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chen Xin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/MatchZoo学习记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenxin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/source/uploads/chenxin.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chen Xin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MatchZoo学习记录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-13T22:35:44+08:00">
+                2018-06-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nlp/" itemprop="url" rel="index">
+                    <span itemprop="name">nlp</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nlp/text-match/" itemprop="url" rel="index">
+                    <span itemprop="name">text match</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nlp/text-match/论文笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">论文笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/13/MatchZoo学习记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/13/MatchZoo学习记录/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>MatchZoo是一个text match领域的tookit,由中科院几位学者研究开源工具，发表了<a href="https://arxiv.org/pdf/1707.07270.pdf" target="_blank" rel="noopener">SIGIR短文</a>。首先，我先从Quora相似问题识别任务出发，探索整个MatchZoo的运行流程与机制。（未完待续！）</p>
+<h2 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h2><p>MatchZoo中有Quora的样例，在<strong>data/QuoraQP</strong>目录下有着相应的脚本与处理代码。<br>我们来查看一下最主要的脚本内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">!/bin/bash</span><br><span class="line"><span class="comment"># 下载Quora训练语料 </span></span><br><span class="line"><span class="comment"># 下载glove词向量840B和6B</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># generate the mz-datasets</span></span><br><span class="line">python prepare_mz_data.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># generate word embedding</span></span><br><span class="line">GLOVE=<span class="string">'.'</span></span><br><span class="line">python gen_w2v.py  <span class="variable">$GLOVE</span>/glove.840B.300d.txt word_dict.txt embed_glove_d300</span><br><span class="line">python norm_embed.py embed_glove_d300 embed_glove_d300_norm</span><br><span class="line">python gen_w2v.py  <span class="variable">$GLOVE</span>/glove.6B.50d.txt word_dict.txt embed_glove_d50</span><br><span class="line">python norm_embed.py embed_glove_d50 embed_glove_d50_norm</span><br><span class="line"></span><br><span class="line"><span class="comment"># generate idf file</span></span><br><span class="line">cat word_stats.txt | cut -d <span class="string">' '</span> -f 1,4 &gt; embed.idf</span><br><span class="line"></span><br><span class="line"><span class="comment"># generate data histograms for drmm model</span></span><br><span class="line">python gen_hist4drmm.py 60</span><br><span class="line"></span><br><span class="line"><span class="comment"># generate data bin sums for anmm model</span></span><br><span class="line">python gen_binsum4anmm.py 20 <span class="comment"># the default number of bin is 20</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Done ..."</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-prepare-mz-data-py-探究"><a href="#1-prepare-mz-data-py-探究" class="headerlink" title="1. prepare_mz_data.py 探究"></a>1. prepare_mz_data.py 探究</h3><p>从上面的shell脚本，我们可以看出，在数据下载好之后，先运行prepare_mz_data.py 。本小节，我们来探究这段代码。（注：该代码是Quora识别任务前期数据处理的核心代码。） <a href="https://github.com/faneshion/MatchZoo/blob/master/data/QuoraQP/prepare_mz_data.py" target="_blank" rel="noopener">代码地址</a></p>
+<ul>
+<li>从main函数看起，</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    prepare = Preparation() <span class="comment"># 该类是数据准备</span></span><br><span class="line">    srcdir = <span class="string">'./'</span></span><br><span class="line">    dstdir = <span class="string">'./'</span></span><br><span class="line"></span><br><span class="line">    infile = srcdir + <span class="string">'quora_duplicate_questions.tsv'</span> <span class="comment"># 读取语料数据</span></span><br><span class="line">    <span class="comment">#infile = srcdir + 'train.csv'</span></span><br><span class="line">    corpus, rels = prepare.run_with_one_corpus_for_quora(infile) <span class="comment"># 因为这里是一个总体的文件，调用该函数，如果是下载的已经切分好训练集，验证集， 测试集</span></span><br><span class="line">    prepare.save_corpus(dstdir + <span class="string">'corpus.txt'</span>, corpus) <span class="comment">#corpus.txt 记录的是qid -- ques</span></span><br><span class="line">    rel_train, rel_valid, rel_test = prepare.split_train_valid_test(rels, [<span class="number">0.8</span>, <span class="number">0.1</span>, <span class="number">0.1</span>]) <span class="comment"># 切分训练语料， 验证集， 测试集， 比例是 8:1:1, 保存！</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Preprocess 是数据处理最主要的类， 该类的参数是各种功能配置，官方的参数配置里有两个配置</span></span><br><span class="line"><span class="comment"># word_stem_config：是用于是否调用nltk进行词干处理，word_filter_config：词过滤配置，词频小于5扔掉</span></span><br><span class="line">preprocessor = Preprocess(word_stem_config=&#123;<span class="string">'enable'</span>: <span class="keyword">False</span>&#125;, word_filter_config=&#123;<span class="string">'min_freq'</span>: <span class="number">5</span>&#125;)</span><br><span class="line">dids, docs = preprocessor.run(dstdir + <span class="string">'corpus.txt'</span>)</span><br><span class="line">preprocessor.save_word_dict(dstdir + <span class="string">'word_dict.txt'</span>) <span class="comment"># 词典， 形式：词 -- id， 如： 吃饭 12</span></span><br><span class="line">preprocessor.save_words_stats(dstdir + <span class="string">'word_stats.txt'</span>) <span class="comment">#形式为： 词序， 词频cf, 文档频df, idf，如：12 5 6 2.51 （这里的12对应是吃饭，5是cf, 6是df, 2.51是idf, 这里idf计算有个公式，这里的数值是假的）</span></span><br></pre></td></tr></table></figure>
+<p>上面这段代码，最重要的是要追究<strong>dids, docs = preprocessor.run(dstdir + ‘corpus.txt’)</strong>，下面，我们来看一下相关代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self, file_path)</span>:</span> <span class="comment"># 这里的file_path是对应上面代码第9行保存的courps文件地址</span></span><br><span class="line">    print(<span class="string">'load...'</span>)</span><br><span class="line">    dids, docs = Preprocess.load(file_path) <span class="comment"># dids:存储句子id的链表，docs:句子链表</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> self._word_seg_config[<span class="string">'enable'</span>]: <span class="comment"># 分词配置，对每个句子进行分词，英文调用nltk分词，中文用jieba分词</span></span><br><span class="line">        print(<span class="string">'word_seg...'</span>)</span><br><span class="line">        docs = Preprocess.word_seg(docs, self._word_seg_config)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> self._doc_filter_config[<span class="string">'enable'</span>]: <span class="comment"># 限制句子长度, 默认无限制，不满足条件的去除</span></span><br><span class="line">        print(<span class="string">'doc_filter...'</span>)</span><br><span class="line">        dids, docs = Preprocess.doc_filter(dids, docs, self._doc_filter_config)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> self._word_stem_config[<span class="string">'enable'</span>]: <span class="comment"># 官方配置选择了False, 这个是调用nltk的词干处理</span></span><br><span class="line">        print(<span class="string">'word_stem...'</span>)</span><br><span class="line">        docs = Preprocess.word_stem(docs)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> self._word_lower_config[<span class="string">'enable'</span>]: <span class="comment"># 大写转换成小写</span></span><br><span class="line">        print(<span class="string">'word_lower...'</span>)</span><br><span class="line">        docs = Preprocess.word_lower(docs)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 对句子进行词频cf，文档频率df,idf数据统计</span></span><br><span class="line">    <span class="comment"># 格式：&#123;"词":&#123;"df":num, "idf":num, "cf":num &#125;&#125;</span></span><br><span class="line">    self._words_stats = Preprocess.cal_words_stat(docs)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> self._word_filter_config[<span class="string">'enable'</span>]: <span class="comment"># 过滤停用词和设定的词频</span></span><br><span class="line">        print(<span class="string">'word_filter...'</span>)</span><br><span class="line">        docs, self._words_useless = Preprocess.word_filter(docs, self._word_filter_config, self._words_stats)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'word_index...'</span>) <span class="comment"># 重新对应 词-id</span></span><br><span class="line">    docs, self._word_dict = Preprocess.word_index(docs, self._word_index_config)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dids, docs</span><br></pre></td></tr></table></figure></p>
+<p>暂时先到这里，下次会继续更新，并且补充完整MatchZoo的整体框架图！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>朋友~给个赏馁！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="chenxin 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/study/" rel="tag"># study</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/10/girl2/" rel="next" title="看了向往的生活，我成了何炅的粉丝">
+                <i class="fa fa-chevron-left"></i> 看了向往的生活，我成了何炅的粉丝
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/source/uploads/chenxin.png"
+                alt="chenxin" />
+            
+              <p class="site-author-name" itemprop="name">chenxin</p>
+              <p class="site-description motion-element" itemprop="description">我自昂扬来，风采动人心。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据处理"><span class="nav-number">1.</span> <span class="nav-text">数据处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-prepare-mz-data-py-探究"><span class="nav-number">1.1.</span> <span class="nav-text">1. prepare_mz_data.py 探究</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chenxin</span>
+
+  
+  <a href="http://www.miitbeian.gov.cn/">苏ICP备18031374号</a>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'VRN4zBDzVmvf6IJhpJVWg0NB-9Nh9j0Va',
+        appKey: 'GUjA1mJE4vSHJxhhbsrwPXeR',
+        placeholder: '欢迎留言',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
