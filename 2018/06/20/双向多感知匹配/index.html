@@ -87,10 +87,14 @@
 <meta property="og:site_name" content="Chen Xin">
 <meta property="og:description" content="介绍该论文是IBM研究员王志国在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很可惜只能另想点了。 任务Natural language sentence matching (NLSM)主要就是比较两个句子并识别他们的关系，适用多个任务，例如：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-20T11:55:58.821Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/2.png">
+<meta property="og:updated_time" content="2018-06-20T11:58:45.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记：Bilateral Multi-Perspective Matching for Natural Language Sentences">
 <meta name="twitter:description" content="介绍该论文是IBM研究员王志国在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很可惜只能另想点了。 任务Natural language sentence matching (NLSM)主要就是比较两个句子并识别他们的关系，适用多个任务，例如：">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/1.png">
 
 
 
@@ -406,13 +410,13 @@
 </ul>
 <p>本文提出的模型属于第二类框架，并且基于第二个框架上缺点之上，给出的一个更加晚上的架构，主要核心在于两个句子之间的匹配。</p>
 <p>个人分析：该文提出的架构，类似于阅读理解上的模型，例如BiDAF，对输入的两句向量表示，做了两个方向上的匹配处理，在做最终的处理，基本架构一致。</p>
-<h2 id="模型框架"><a href="#模型框架" class="headerlink" title="模型框架"></a>模型框架</h2><p>该模型分层五层<br><a href="双向多感知匹配/1.png">模型整体架构图</a></p>
+<h2 id="模型框架"><a href="#模型框架" class="headerlink" title="模型框架"></a>模型框架</h2><p>该模型分层五层<br><img src="/2018/06/20/双向多感知匹配/1.png" alt="模型整体架构图"></p>
 <ol>
 <li><p>Word Representation Layer<br>目的：输入的处理<br>输入：P - Q (分别表示两句话)<br>处理：预训练glove词向量+字符级向量(随即初始化，训练调整) –&gt; LSTM<br>输出：P [p1, … , pm] Q [q1, …, qn]</p>
 </li>
 <li><p>Context Representation Layer<br>目的：对句子进行编码<br>输入：上层的两个P 与 Q<br>处理：P + Q –&gt; BiLSTM = H [h1,…,hm] [h1,…,hn]</p>
 </li>
-<li><p><strong>Matching Layer</strong><br>目的：对上层LSTM输出的P Q 隐藏层进行匹配处理<br>输入: [h1,…,hm] [h1,…,hn] (m-P, n-Q)<br>处理：有以下如图所示的四种处理方式<br><a href="双向多感知匹配/2.png">四种匹配模式</a></p>
+<li><p><strong>Matching Layer</strong><br>目的：对上层LSTM输出的P Q 隐藏层进行匹配处理<br>输入: [h1,…,hm] [h1,…,hn] (m-P, n-Q)<br>处理：有以下如图所示的四种处理方式<br><img src="/2018/06/20/双向多感知匹配/2.png" alt="四种匹配模式"></p>
 </li>
 <li><p>Aggregation Layer<br>目的：将匹配层处理好的P与Q向量聚合到一个固定长度的匹配向量之中<br>输入：[M1,…,Mm] [M1,…,Mn] 分别是匹配处理后的表示<br>处理：[M1,…,Mm] + [M1,…,Mn] –&gt;BiLSTM = MV(固定长度的匹配向量）</p>
 </li>
@@ -420,7 +424,7 @@
 </li>
 </ol>
 <h2 id="模型匹配层分析"><a href="#模型匹配层分析" class="headerlink" title="模型匹配层分析"></a>模型匹配层分析</h2><p>该层是本文模型的核心，在阅读理解的多个模型中，匹配层也是核心，只不过阅读理解模型上多个各种新颖的注意力机制进行匹配处理计算。</p>
-<p><a href="双向多感知匹配/2.png">四种匹配模式</a></p>
+<p><img src="/2018/06/20/双向多感知匹配/2.png" alt="四种匹配模式"></p>
 
       
     </div>
