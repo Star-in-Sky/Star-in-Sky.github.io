@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/8.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/9.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/10.png">
-<meta property="og:updated_time" content="2018-06-20T13:41:52.642Z">
+<meta property="og:updated_time" content="2018-06-20T13:46:50.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记：Bilateral Multi-Perspective Matching for Natural Language Sentences">
 <meta name="twitter:description" content="介绍该论文是IBM研究员王志国在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很可惜只能另想点了。 任务Natural language sentence matching (NLSM)主要就是比较两个句子并识别他们的关系，适用多个任务，例如：">
@@ -434,19 +434,21 @@
 <h2 id="模型匹配层分析"><a href="#模型匹配层分析" class="headerlink" title="模型匹配层分析"></a>模型匹配层分析</h2><p>该层是本文模型的核心，在阅读理解的多个模型中，匹配层也是核心，只不过阅读理解模型上多个各种新颖的注意力机制进行匹配处理计算。下图值画了一个方向的P -&gt; Q，实际中还有Q -&gt; P操作</p>
 <p><img src="/2018/06/20/双向多感知匹配/2.png" alt="四种匹配模式"></p>
 <ol>
-<li><p>Full-Matching<br>顾名思义，全匹配，如图a所示一样，将P在上层LSTM输出的隐藏层每一个hi与Q在上层LSTM最后输入的hn做计算，计算方式如下,因为是双向，所以这里也计算两个方向上的匹配矩阵<br><img src="/2018/06/20/双向多感知匹配/3.png" alt="全匹配计算公式"></p>
-</li>
-<li><p>Maxpooling-Matching<br>如图b所示，图中清晰地表明了如何操作，不同于Full-matching模式，这里将P与Q在每一个时刻的上一层的隐藏层输出做相应计算，并且在每一维度上取max,计算公式如下<br><img src="/2018/06/20/双向多感知匹配/4.png" alt="全匹配计算公式"></p>
-</li>
+<li>Full-Matching<br>顾名思义，全匹配，如图a所示一样，将P在上层LSTM输出的隐藏层每一个hi与Q在上层LSTM最后输入的hn做计算，计算方式如下,因为是双向，所以这里也计算两个方向上的匹配矩阵</li>
+</ol>
+<p><img src="/2018/06/20/双向多感知匹配/3.png" alt="全匹配计算公式"></p>
+<ol start="2">
+<li>Maxpooling-Matching<br>如图b所示，图中清晰地表明了如何操作，不同于Full-matching模式，这里将P与Q在每一个时刻的上一层的隐藏层输出做相应计算，并且在每一维度上取max,计算公式如下:</li>
+</ol>
+<p><img src="/2018/06/20/双向多感知匹配/4.png" alt="maxpooling"></p>
+<ol start="3">
 <li><p>Attentive-Matching<br>如图c所示，这理使用的是注意力机制，先计算了P与Q之间的注意力权重，然后调整Q表示之后，在来一个类似full-matching的计算。<br><img src="/2018/06/20/双向多感知匹配/5.png" alt="注意力计算公式"><br>在注意力矩阵计算好之后，重新调整Q的表示<br><img src="/2018/06/20/双向多感知匹配/6.png" alt="Q重新调整"><br>接着，开始最后的计算，<br><img src="/2018/06/20/双向多感知匹配/7.png" alt="最后计算"></p>
 </li>
 <li><p>Max-Attentive-Matching<br>如图d所示，该策略类似Attentive-Matching，唯一的不同是注意力权重的使用上，Attentive-Matching是利用注意力权重相乘，这里是取权重矩阵值最大的那一列数据，简单的说，有点类似soft attentiion 和 hard attention, 策略3 就是soft-attention, 这里就是hard-attention</p>
 </li>
 </ol>
 <h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>本文在实验上做了很多工作，在不同语料上做了各种对比，同时，针对模型匹配层提出的4中方式，都相应做了实验对比，同时还对比单方向计算和双方向计算的实验，证明了本文提出进行两个方向计算的必要性。</p>
-<p><img src="/2018/06/20/双向多感知匹配/8.png" alt="复述识别性能"></p>
-<p><img src="/2018/06/20/双向多感知匹配/9.png" alt="推理性能"></p>
-<p><img src="/2018/06/20/双向多感知匹配/10.png" alt="排序性能"></p>
+<p><img src="/2018/06/20/双向多感知匹配/8.png" alt="复述识别性能"><br><img src="/2018/06/20/双向多感知匹配/9.png" alt="推理性能"><br><img src="/2018/06/20/双向多感知匹配/10.png" alt="排序性能"></p>
 <h2 id="个人总结"><a href="#个人总结" class="headerlink" title="个人总结"></a>个人总结</h2><p>Natural language sentence matching 是可以复用很多阅读理解任务上的经验，都是对输入的两段自然语句进行处理，只不过阅读理解任务上是一个句子+段落的输入，而句子匹配是两句话的输入，本文可以说是很好复用了阅读理解相应的工作（个人理解，我从时间上推测，阅读理解模型bidaf是16年发表在ACL，本文是17年下半年），我在阅读理解上的研究陷入困境（阅读理解任务很需要硬件资源，也不是适合一个人做的，而且竞争激烈，谷歌，阿里，腾讯，Facebook等大公司在竞争，现在进入到各种模型上的堆砌阶段），就想到将阅读理解的一些经验用在句子匹配上。另外，本文工作上可以说很充分，实验了3种语料上的性能，并且对比了自己提出模型核心上的4中方法性能。对于句子匹配任务，有新的一篇论文COLING2018《Neural Network Models for Paraphrase Identification, Semantic Textual Similarity, Natural Language Inference, and Question Answering》更好的探索了这一领域，虽然已经有人做了相应的<a href="http://www.paperweekly.site/papers/notes/411" target="_blank" rel="noopener">论文笔记</a>, 但是对于我认为最重要的现象分析没有多做解释，我将在下一篇笔记里介绍。</p>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p><a href="https://zhiguowang.github.io/" target="_blank" rel="noopener">作者主页</a><br><a href="https://github.com/zhiguowang/BiMPM" target="_blank" rel="noopener">code</a></p>
 
