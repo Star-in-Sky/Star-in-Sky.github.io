@@ -90,7 +90,8 @@
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/1.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/2.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/2.png">
-<meta property="og:updated_time" content="2018-06-20T11:58:45.516Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/3.png">
+<meta property="og:updated_time" content="2018-06-20T12:18:34.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记：Bilateral Multi-Perspective Matching for Natural Language Sentences">
 <meta name="twitter:description" content="介绍该论文是IBM研究员王志国在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很可惜只能另想点了。 任务Natural language sentence matching (NLSM)主要就是比较两个句子并识别他们的关系，适用多个任务，例如：">
@@ -423,8 +424,11 @@
 <li><p>Prediction Layer<br>目的：计算最后的概率分布 Pr(y|P,Q)<br>输入：MV<br>处理：MV –&gt; 2层前向传播网络 –&gt; softmax = Pr(y|P,Q)</p>
 </li>
 </ol>
-<h2 id="模型匹配层分析"><a href="#模型匹配层分析" class="headerlink" title="模型匹配层分析"></a>模型匹配层分析</h2><p>该层是本文模型的核心，在阅读理解的多个模型中，匹配层也是核心，只不过阅读理解模型上多个各种新颖的注意力机制进行匹配处理计算。</p>
+<h2 id="模型匹配层分析"><a href="#模型匹配层分析" class="headerlink" title="模型匹配层分析"></a>模型匹配层分析</h2><p>该层是本文模型的核心，在阅读理解的多个模型中，匹配层也是核心，只不过阅读理解模型上多个各种新颖的注意力机制进行匹配处理计算。下图值画了一个方向的P -&gt; Q，实际中还有Q -&gt; P操作</p>
 <p><img src="/2018/06/20/双向多感知匹配/2.png" alt="四种匹配模式"></p>
+<ol>
+<li>Full-Matching<br>顾名思义，全匹配，如图a所示一样，将P在上层LSTM输出的隐藏层每一个hi与Q在上层LSTM最后输入的hn做计算，计算方式如下：<br><img src="/2018/06/20/双向多感知匹配/3.png" alt="全匹配计算公式"></li>
+</ol>
 
       
     </div>
