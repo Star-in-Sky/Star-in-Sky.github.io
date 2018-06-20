@@ -79,24 +79,18 @@
 
 
 
-<meta name="description" content="从16年发布的SQuAD语料之后，阅读理解领域的相关研究取得了突飞猛进的发展，在SQuAD语料上，多个模型效果超越人类性能指标。随后，有多个阅读理解语料(MSMARCO/DuReader/TriviaQA)被提出,在SQuAD语料基础上进一步拓宽了阅读理解任务的复杂度（场景或问题越加贴近实际场景），今天我主要对TriviaQA语料进行分析。(论文链接, 数据下载)">
+<meta name="description" content="Bilateral Multi-Perspective Matching for Natural Language Sentences标签（空格分隔）： NLP  介绍该论文是IBM研究员王志国在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很">
 <meta name="keywords" content="study">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论文笔记-TriviaQA语料">
-<meta property="og:url" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/index.html">
+<meta property="og:title" content="双向多感知匹配">
+<meta property="og:url" content="http://yoursite.com/2018/06/20/双向多感知匹配/index.html">
 <meta property="og:site_name" content="Chen Xin">
-<meta property="og:description" content="从16年发布的SQuAD语料之后，阅读理解领域的相关研究取得了突飞猛进的发展，在SQuAD语料上，多个模型效果超越人类性能指标。随后，有多个阅读理解语料(MSMARCO/DuReader/TriviaQA)被提出,在SQuAD语料基础上进一步拓宽了阅读理解任务的复杂度（场景或问题越加贴近实际场景），今天我主要对TriviaQA语料进行分析。(论文链接, 数据下载)">
+<meta property="og:description" content="Bilateral Multi-Perspective Matching for Natural Language Sentences标签（空格分隔）： NLP  介绍该论文是IBM研究员王志国在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/1.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/2.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/3.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/4.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/5.png">
-<meta property="og:updated_time" content="2018-05-22T14:14:22.685Z">
+<meta property="og:updated_time" content="2018-06-20T11:53:55.238Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="论文笔记-TriviaQA语料">
-<meta name="twitter:description" content="从16年发布的SQuAD语料之后，阅读理解领域的相关研究取得了突飞猛进的发展，在SQuAD语料上，多个模型效果超越人类性能指标。随后，有多个阅读理解语料(MSMARCO/DuReader/TriviaQA)被提出,在SQuAD语料基础上进一步拓宽了阅读理解任务的复杂度（场景或问题越加贴近实际场景），今天我主要对TriviaQA语料进行分析。(论文链接, 数据下载)">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/1.png">
+<meta name="twitter:title" content="双向多感知匹配">
+<meta name="twitter:description" content="Bilateral Multi-Perspective Matching for Natural Language Sentences标签（空格分隔）： NLP  介绍该论文是IBM研究员王志国在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很">
 
 
 
@@ -126,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/20/双向多感知匹配/"/>
 
 
 
 
 
-  <title>论文笔记-TriviaQA语料 | Chen Xin</title>
+  <title>双向多感知匹配 | Chen Xin</title>
   
 
 
@@ -269,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/22/论文笔记-TriviaQA语料/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/20/双向多感知匹配/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chenxin">
@@ -286,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">论文笔记-TriviaQA语料</h1>
+          <h1 class="post-title" itemprop="name headline">双向多感知匹配</h1>
         
 
         <div class="post-meta">
@@ -298,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T11:15:41+08:00">
-                2018-05-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-20T10:35:02+08:00">
+                2018-06-20
               </time>
             
 
@@ -332,7 +326,18 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nlp/论文笔记/" itemprop="url" rel="index">
+                  <a href="/categories/nlp/text-match/" itemprop="url" rel="index">
+                    <span itemprop="name">text match</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nlp/text-match/论文笔记/" itemprop="url" rel="index">
                     <span itemprop="name">论文笔记</span>
                   </a>
                 </span>
@@ -350,8 +355,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/22/论文笔记-TriviaQA语料/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/22/论文笔记-TriviaQA语料/" itemprop="commentCount"></span>
+                <a href="/2018/06/20/双向多感知匹配/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/20/双向多感知匹配/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -384,199 +389,40 @@
       
 
       
-        <p>从16年发布的SQuAD语料之后，阅读理解领域的相关研究取得了突飞猛进的发展，在SQuAD语料上，多个模型效果超越人类性能指标。随后，有多个阅读理解语料(MSMARCO/DuReader/TriviaQA)被提出,在SQuAD语料基础上进一步拓宽了阅读理解任务的复杂度（场景或问题越加贴近实际场景），今天我主要对TriviaQA语料进行分析。(<a href="http://xueshu.baidu.com/s?wd=paperuri:%2859ed6bbc099f6f36ad42377caf807346%29&amp;filter=sc_long_sign&amp;tn=SE_xueshusource_2kduw22v&amp;sc_vurl=http://arxiv.org/abs/1705.03551&amp;ie=utf-8&amp;sc_us=10216672048524353352" target="_blank" rel="noopener">论文链接</a>, <a href="http://nlp.cs.washington.edu/triviaqa/" target="_blank" rel="noopener">数据下载</a>)<br><a id="more"></a></p>
-<h2 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h2><p>size:  650k+ （问题-答案-证据），平均每个问题对应6个证据，证据来源于wiki和web。</p>
-<p>具有以下特征：</p>
-<blockquote>
+        <h1 id="Bilateral-Multi-Perspective-Matching-for-Natural-Language-Sentences"><a href="#Bilateral-Multi-Perspective-Matching-for-Natural-Language-Sentences" class="headerlink" title="Bilateral Multi-Perspective Matching for Natural Language Sentences"></a>Bilateral Multi-Perspective Matching for Natural Language Sentences</h1><p>标签（空格分隔）： NLP</p>
+<hr>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>该论文是IBM研究员<a href="https://www.ijcai.org/proceedings/2017/579" target="_blank" rel="noopener">王志国</a>在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很可惜只能另想点了。</p>
+<h2 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h2><p>Natural language sentence matching (NLSM)主要就是比较两个句子并识别他们的关系，适用多个任务，例如：复述识别 文本蕴涵 问答排序等</p>
+<ol>
+<li><p>Paraphrase Identification (PI) ：判断两个句子是否表达同样的意思（identifing whether two sentences express the same </p>
+</li>
+<li><p>Natural Language Inference (NLI) ：也叫Recognizing Textual Entailment(RTE)，判断两个句子在语义上是否存在推断关系，相对任务一更复杂一些，不仅仅是考虑相似，而且也考虑了推理。</p>
+</li>
+<li><p>Question Answering (QA) ：主要是指选择出来最符合问题的答案，是在给定的答案中进行选择，而不是生成</p>
+</li>
+</ol>
+<h2 id="动机分析"><a href="#动机分析" class="headerlink" title="动机分析"></a>动机分析</h2><p>本文在开始的Introduction提出在NLSM任务上对之前任务给出了两个框架</p>
 <ul>
-<li>问题组成相对复杂</li>
-<li>在问题和答案证据之间有相当大的句法和词法差异</li>
-<li>需要更多句子的交叉推理才能找到答案</li>
+<li>“Siamese”<br>架构：使用相同的神经网络encoder对输入的两句话进行编码成句子向量，再对两个句子进行一个匹配预测处理，例如两个句子向量进行点乘，余弦，欧几里得距离计算，再softmax得出结果。<br> 优点：参数共享（两个句子编码层）是模型更小，训练更快。</li>
+<li>“Matching aggregation”<br>架构：由<a href="http://xueshu.baidu.com/s?wd=paperuri%3A%288978eef927945be5b64494c8bd4e3388%29&amp;filter=sc_long_sign&amp;tn=SE_xueshusource_2kduw22v&amp;sc_vurl=http%3A%2F%2Farxiv.org%2Fabs%2F1611.01747&amp;ie=utf-8&amp;sc_us=15995814480716425477" target="_blank" rel="noopener">Wang and jiang, 2016</a>提出，先对输入的两个句子进行匹配处理，之后再将匹配结果聚合到一个向量中，最后做最终结果处理(softmax之类)<br>优点：捕获两个句子之间更多的交互特征。<br>缺点：<strong>两个句子之间的匹配不充分，只有词与词，短语到短语，单个方向上的匹配</strong></li>
 </ul>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>统计</th>
-<th style="text-align:center"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>QA对总数</td>
-<td style="text-align:center">95956</td>
-</tr>
-<tr>
-<td>答案唯一个数</td>
-<td style="text-align:center">40478</td>
-</tr>
-<tr>
-<td>证据文本个数</td>
-<td style="text-align:center">662659</td>
-</tr>
-<tr>
-<td>问题平均长度</td>
-<td style="text-align:center">14</td>
-</tr>
-<tr>
-<td>文本平均长度</td>
-<td style="text-align:center">2895</td>
-</tr>
-</tbody>
-</table>
-<p>针对200个样例做的<strong>问题统计分析</strong>：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">属性</th>
-<th style="text-align:center">样例</th>
-<th style="text-align:center">统计</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">实体/问题</td>
-<td style="text-align:center">Which politician won the <strong>Nobel Peace Prize</strong> in 2009?</td>
-<td style="text-align:center">1.77/每个问题</td>
-</tr>
-<tr>
-<td style="text-align:center">包含描述答案所属细粒度类别短语</td>
-<td style="text-align:center">What <strong>fragrant essential oil</strong> is obtained from Damask Rose?</td>
-<td style="text-align:center">73.5%</td>
-</tr>
-<tr>
-<td style="text-align:center">包含描述答案粗粒度类别短语</td>
-<td style="text-align:center"><strong>Who</strong> won the Nobel Peace Prize in 2009?</td>
-<td style="text-align:center">15.5%</td>
-</tr>
-<tr>
-<td style="text-align:center">涉及时间推理</td>
-<td style="text-align:center">What was photographed for the first time in <strong>October 1959</strong></td>
-<td style="text-align:center">34%</td>
-</tr>
-<tr>
-<td style="text-align:center">含有比较</td>
-<td style="text-align:center">What is the appropriate name of the <strong>largest</strong> type of frog?</td>
-<td style="text-align:center">9%</td>
-</tr>
-</tbody>
-</table>
-<p>针对200个样例做的<strong>答案统计分析</strong>：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">比例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">数字型</td>
-<td style="text-align:center">4.17</td>
-</tr>
-<tr>
-<td style="text-align:center">自由文本</td>
-<td style="text-align:center">2.98</td>
-</tr>
-<tr>
-<td style="text-align:center">维基百科标题</td>
-<td style="text-align:center">92.85</td>
-</tr>
-<tr>
-<td style="text-align:center">人</td>
-<td style="text-align:center">32</td>
-</tr>
-<tr>
-<td style="text-align:center">地点</td>
-<td style="text-align:center">23</td>
-</tr>
-<tr>
-<td style="text-align:center">组织</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td style="text-align:center">杂项</td>
-<td style="text-align:center">40</td>
-</tr>
-</tbody>
-</table>
-<p>针对<strong>证据文本的统计分析</strong></p>
-<table>
-<thead>
-<tr>
-<th>描述</th>
-<th style="text-align:center">解释</th>
-<th style="text-align:center">wiki</th>
-<th style="text-align:center">web</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>词形变异(同义词)</td>
-<td style="text-align:center">问题与答案之间的主要对应关系是同义词</td>
-<td style="text-align:center">41%</td>
-<td style="text-align:center">39%</td>
-</tr>
-<tr>
-<td>词形变异</td>
-<td style="text-align:center">问题与文件之间的主要对应关系需要常识或外部知识</td>
-<td style="text-align:center">17%</td>
-<td style="text-align:center">17%</td>
-</tr>
-<tr>
-<td>句法变化</td>
-<td style="text-align:center">在将问题解释为陈述形式之后，其句法依赖性结构不匹配答案句子的结构</td>
-<td style="text-align:center">69%</td>
-<td style="text-align:center">65%</td>
-</tr>
-<tr>
-<td>多句子</td>
-<td style="text-align:center">需要多句子推理</td>
-<td style="text-align:center">40%</td>
-<td style="text-align:center">35%</td>
-</tr>
-<tr>
-<td>列表/表格</td>
-<td style="text-align:center">答案在列表/表格之中</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">7%</td>
-</tr>
-</tbody>
-</table>
-<p>语料具体形式：</p>
-<blockquote>
-<ul>
-<li>Answer:<blockquote>
-<p>Value: 从trivia网站获得的答案<br>Aliases(别名): 别名列表（来自Wikipedia和其他来源）。<br>NormalizedAliases(标准化别名): 上述的标准化的变体。如果预测答案属于此列表，则认为它是完全匹配的。<br>Type: 数字，Wikipedia实体或FreeForm<br>MatchedWikiEntityName: 仅在类型为WikipediaEntity时出现<br>NormalizedMatchedWikiEntityName: 仅在类型为WikipediaEntity时出现</p>
-</blockquote>
+<p>本文提出的模型属于第二类框架，并且基于第二个框架上缺点之上，给出的一个更加晚上的架构，主要核心在于两个句子之间的匹配。</p>
+<p>个人分析：该文提出的架构，类似于阅读理解上的模型，例如BiDAF，对输入的两句向量表示，做了两个方向上的匹配处理，在做最终的处理，基本架构一致。</p>
+<h2 id="模型框架"><a href="#模型框架" class="headerlink" title="模型框架"></a>模型框架</h2><p>该模型分层五层<br><a href="双向多感知匹配/1.png">模型整体架构图</a></p>
+<ol>
+<li><p>Word Representation Layer<br>目的：输入的处理<br>输入：P - Q (分别表示两句话)<br>处理：预训练glove词向量+字符级向量(随即初始化，训练调整) –&gt; LSTM<br>输出：P [p1, … , pm] Q [q1, …, qn]</p>
 </li>
-<li>EntityPages: 该问题的维基百科文档列表<blockquote>
-<p>DocSource：search / tagme<br>Filename: Filename in “evidence/wikipedia” directory<br>Title: Wikipedia page title</p>
-</blockquote>
+<li><p>Context Representation Layer<br>目的：对句子进行编码<br>输入：上层的两个P 与 Q<br>处理：P + Q –&gt; BiLSTM = H [h1,…,hm] [h1,…,hn]</p>
 </li>
-<li>Question</li>
-<li>QuestionId: 问题的唯一字母数字标识</li>
-<li>QuestionSource: 该问题被抓取的网站</li>
-<li>SearchResults: 包含答案实体的检索网页列表<blockquote>
-<p>Description: 搜索片段<br>Filename:<br>Rank: 搜索输出排序<br>Title: 页面标题<br>Url: 网页链接</p>
-</blockquote>
+<li><p><strong>Matching Layer</strong><br>目的：对上层LSTM输出的P Q 隐藏层进行匹配处理<br>输入: [h1,…,hm] [h1,…,hn] (m-P, n-Q)<br>处理：有以下如图所示的四种处理方式<br><a href="双向多感知匹配/2.png">四种匹配模式</a></p>
 </li>
-</ul>
-</blockquote>
-<p>具体样例如下：<br><img src="/2018/05/22/论文笔记-TriviaQA语料/1.png" alt="样例1"><br><img src="/2018/05/22/论文笔记-TriviaQA语料/2.png" alt="样例2"></p>
-<p>文件格式如下：</p>
-<blockquote>
-<p>trivia:</p>
-<blockquote>
-<p>qa:</p>
-<blockquote>
-<p>verified-web-dev.json: 论文中提及的人工标注的verified数据集<br>verified-wikipedia-dev.json: 同上<br>web-dev/train.json: 证据文件来源于搜索引擎<br>wikipedia-dev/train.json: 证据文件来源于wiki<br>web/wiki-test-without-answers.json: 测试集<br>evidence:<br>wikipedia: 维基百科数据<br>web: 爬取的相关网页</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2 id="实验分析："><a href="#实验分析：" class="headerlink" title="实验分析："></a>实验分析：</h2><p>论文中给出了基于传统机器学习（分类器）和深度学习（BiDAF）的两种方法，并且给出了对比。实验性能如下图：<br><img src="/2018/05/22/论文笔记-TriviaQA语料/3.png" alt="实验对比"></p>
-<p>除了论文给出的baseline实验结果，在<a href="https://competitions.codalab.org/competitions/17208#results" target="_blank" rel="noopener">官方</a>的榜单上，已经有很多团队做出了相应的成果，下面是实验榜单最新(当前时间)的结果：<br><img src="/2018/05/22/论文笔记-TriviaQA语料/4.png" alt="wiki数据上结果"></p>
-<p><img src="/2018/05/22/论文笔记-TriviaQA语料/5.png" alt="web数据上结果"></p>
+<li><p>Aggregation Layer<br>目的：将匹配层处理好的P与Q向量聚合到一个固定长度的匹配向量之中<br>输入：[M1,…,Mm] [M1,…,Mn] 分别是匹配处理后的表示<br>处理：[M1,…,Mm] + [M1,…,Mn] –&gt;BiLSTM = MV(固定长度的匹配向量）</p>
+</li>
+<li><p>Prediction Layer<br>目的：计算最后的概率分布 Pr(y|P,Q)<br>输入：MV<br>处理：MV –&gt; 2层前向传播网络 –&gt; softmax = Pr(y|P,Q)</p>
+</li>
+</ol>
+<h2 id="模型匹配层分析"><a href="#模型匹配层分析" class="headerlink" title="模型匹配层分析"></a>模型匹配层分析</h2><p>该层是本文模型的核心，在阅读理解的多个模型中，匹配层也是核心，只不过阅读理解模型上多个各种新颖的注意力机制进行匹配处理计算。</p>
+<p><a href="双向多感知匹配/2.png">四种匹配模式</a></p>
 
       
     </div>
@@ -631,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/18/Hello World/" rel="next" title="Hello World!">
-                <i class="fa fa-chevron-left"></i> Hello World!
+              <a href="/2018/06/13/MatchZoo学习记录/" rel="next" title="MatchZoo学习记录">
+                <i class="fa fa-chevron-left"></i> MatchZoo学习记录
               </a>
             
           </div>
@@ -640,10 +486,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/23/论文笔记-msmarco/" rel="prev" title="论文笔记-MS MARCO">
-                论文笔记-MS MARCO <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -788,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#统计"><span class="nav-number">1.</span> <span class="nav-text">统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验分析："><span class="nav-number">2.</span> <span class="nav-text">实验分析：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Bilateral-Multi-Perspective-Matching-for-Natural-Language-Sentences"><span class="nav-number">1.</span> <span class="nav-text">Bilateral Multi-Perspective Matching for Natural Language Sentences</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务"><span class="nav-number">1.2.</span> <span class="nav-text">任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动机分析"><span class="nav-number">1.3.</span> <span class="nav-text">动机分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型框架"><span class="nav-number">1.4.</span> <span class="nav-text">模型框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型匹配层分析"><span class="nav-number">1.5.</span> <span class="nav-text">模型匹配层分析</span></a></li></ol></li></ol></div>
             
 
           </div>
