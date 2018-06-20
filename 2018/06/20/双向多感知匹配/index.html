@@ -95,7 +95,10 @@
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/5.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/6.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/7.png">
-<meta property="og:updated_time" content="2018-06-20T12:52:57.300Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/8.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/9.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/10.png">
+<meta property="og:updated_time" content="2018-06-20T13:04:10.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记：Bilateral Multi-Perspective Matching for Natural Language Sentences">
 <meta name="twitter:description" content="介绍该论文是IBM研究员王志国在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很可惜只能另想点了。 任务Natural language sentence matching (NLSM)主要就是比较两个句子并识别他们的关系，适用多个任务，例如：">
@@ -434,11 +437,17 @@
 <li><p>Full-Matching<br>顾名思义，全匹配，如图a所示一样，将P在上层LSTM输出的隐藏层每一个hi与Q在上层LSTM最后输入的hn做计算，计算方式如下,因为是双向，所以这里也计算两个方向上的匹配矩阵<br><img src="/2018/06/20/双向多感知匹配/3.png" alt="全匹配计算公式"></p>
 </li>
 <li><p>Maxpooling-Matching<br>如图b所示，图中清晰地表明了如何操作，不同于Full-matching模式，这里将P与Q在每一个时刻的上一层的隐藏层输出做相应计算，并且在每一维度上取max,计算公式如下<br><img src="/2018/06/20/双向多感知匹配/4.png" alt="全匹配计算公式"></p>
-<ol start="3">
-<li>Attentive-Matching<br>如图c所示，这理使用的是注意力机制，先计算了P与Q之间的注意力权重，然后调整Q表示之后，在来一个类似full-matching的计算。<br><img src="/2018/06/20/双向多感知匹配/5.png" alt="注意力计算公式"><br>在注意力矩阵计算好之后，重新调整Q的表示<br><img src="/2018/06/20/双向多感知匹配/6.png" alt="Q重新调整"><br>接着，开始最后的计算，<br><img src="/2018/06/20/双向多感知匹配/7.png" alt="最后计算"></li>
-</ol>
 </li>
 </ol>
+<ol start="3">
+<li><p>Attentive-Matching<br>如图c所示，这理使用的是注意力机制，先计算了P与Q之间的注意力权重，然后调整Q表示之后，在来一个类似full-matching的计算。<br><img src="/2018/06/20/双向多感知匹配/5.png" alt="注意力计算公式"><br>在注意力矩阵计算好之后，重新调整Q的表示<br><img src="/2018/06/20/双向多感知匹配/6.png" alt="Q重新调整"><br>接着，开始最后的计算，<br><img src="/2018/06/20/双向多感知匹配/7.png" alt="最后计算"></p>
+</li>
+<li><p>Max-Attentive-Matching<br>如图d所示，该策略类似Attentive-Matching，唯一的不同是注意力权重的使用上，Attentive-Matching是利用注意力权重相乘，这里是取权重矩阵值最大的那一列数据，简单的说，有点类似soft attentiion 和 hard attention, 策略3 就是soft-attention, 这里就是hard-attention</p>
+</li>
+</ol>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>本文在实验上做了很多工作，在不同语料上做了各种对比，同时，针对模型匹配层提出的4中方式，都相应做了实验对比，同时还对比单方向计算和双方向计算的实验，证明了本文提出进行两个方向计算的必要性。<br><img src="/2018/06/20/双向多感知匹配/8.png" alt="复述识别性能"></p>
+<p><img src="/2018/06/20/双向多感知匹配/9.png" alt="推理性能"></p>
+<p><img src="/2018/06/20/双向多感知匹配/10.png" alt="排序性能"></p>
 
       
     </div>
@@ -646,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务"><span class="nav-number">2.</span> <span class="nav-text">任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动机分析"><span class="nav-number">3.</span> <span class="nav-text">动机分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型框架"><span class="nav-number">4.</span> <span class="nav-text">模型框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型匹配层分析"><span class="nav-number">5.</span> <span class="nav-text">模型匹配层分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务"><span class="nav-number">2.</span> <span class="nav-text">任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动机分析"><span class="nav-number">3.</span> <span class="nav-text">动机分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型框架"><span class="nav-number">4.</span> <span class="nav-text">模型框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型匹配层分析"><span class="nav-number">5.</span> <span class="nav-text">模型匹配层分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验结果"><span class="nav-number">6.</span> <span class="nav-text">实验结果</span></a></li></ol></div>
             
 
           </div>
