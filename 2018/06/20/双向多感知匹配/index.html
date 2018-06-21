@@ -91,14 +91,14 @@
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/2.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/2.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/3.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/4.PNG">
+<meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/4.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/5.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/6.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/7.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/8.PNG">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/9.PNG">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/10.PNG">
-<meta property="og:updated_time" content="2018-06-21T00:53:39.861Z">
+<meta property="og:updated_time" content="2018-06-21T01:00:13.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记：Bilateral Multi-Perspective Matching for Natural Language Sentences">
 <meta name="twitter:description" content="介绍该论文是IBM研究员王志国在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很可惜只能另想点了。 任务Natural language sentence matching (NLSM)主要就是比较两个句子并识别他们的关系，适用多个任务，例如：">
@@ -440,7 +440,7 @@
 <ol start="2">
 <li>Maxpooling-Matching<br>如图b所示，图中清晰地表明了如何操作，不同于Full-matching模式，这里将P与Q在每一个时刻的上一层的隐藏层输出做相应计算，并且在每一维度上取max,计算公式如下:</li>
 </ol>
-<p><img src="/2018/06/20/双向多感知匹配/4.PNG" alt="maxpooling"></p>
+<p><img src="/2018/06/20/双向多感知匹配/4.jpg" alt="maxpooling"></p>
 <ol start="3">
 <li><p>Attentive-Matching<br>如图c所示，这理使用的是注意力机制，先计算了P与Q之间的注意力权重，然后调整Q表示之后，在来一个类似full-matching的计算。<br><img src="/2018/06/20/双向多感知匹配/5.png" alt="注意力计算公式"><br>在注意力矩阵计算好之后，重新调整Q的表示<br><img src="/2018/06/20/双向多感知匹配/6.png" alt="Q重新调整"><br>接着，开始最后的计算，<br><img src="/2018/06/20/双向多感知匹配/7.png" alt="最后计算"></p>
 </li>
