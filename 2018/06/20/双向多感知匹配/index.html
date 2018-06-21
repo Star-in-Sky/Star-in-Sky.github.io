@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="介绍该论文是IBM研究员王志国在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很可惜只能另想点了。 任务Natural language sentence matching (NLSM)主要就是比较两个句子并识别他们的关系，适用多个任务，例如：">
+<meta name="description" content="介绍该论文是IBM研究员王志国在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很可惜只能另想点了。 任务Natural language sentence matching (NLSM)主要就是比较两个句子并识别他们的关系，适用多个任务  Pa">
 <meta name="keywords" content="study">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文笔记：Bilateral Multi-Perspective Matching for Natural Language Sentences">
 <meta property="og:url" content="http://yoursite.com/2018/06/20/双向多感知匹配/index.html">
 <meta property="og:site_name" content="Chen Xin">
-<meta property="og:description" content="介绍该论文是IBM研究员王志国在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很可惜只能另想点了。 任务Natural language sentence matching (NLSM)主要就是比较两个句子并识别他们的关系，适用多个任务，例如：">
+<meta property="og:description" content="介绍该论文是IBM研究员王志国在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很可惜只能另想点了。 任务Natural language sentence matching (NLSM)主要就是比较两个句子并识别他们的关系，适用多个任务  Pa">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/1.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/2.png">
@@ -98,10 +98,10 @@
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/8.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/9.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/10.jpg">
-<meta property="og:updated_time" content="2018-06-21T01:02:53.462Z">
+<meta property="og:updated_time" content="2018-06-21T01:07:21.428Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记：Bilateral Multi-Perspective Matching for Natural Language Sentences">
-<meta name="twitter:description" content="介绍该论文是IBM研究员王志国在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很可惜只能另想点了。 任务Natural language sentence matching (NLSM)主要就是比较两个句子并识别他们的关系，适用多个任务，例如：">
+<meta name="twitter:description" content="介绍该论文是IBM研究员王志国在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很可惜只能另想点了。 任务Natural language sentence matching (NLSM)主要就是比较两个句子并识别他们的关系，适用多个任务  Pa">
 <meta name="twitter:image" content="http://yoursite.com/2018/06/20/双向多感知匹配/1.png">
 
 
@@ -402,7 +402,7 @@
 
       
         <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>该论文是IBM研究员<a href="https://www.ijcai.org/proceedings/2017/579" target="_blank" rel="noopener">王志国</a>在2017年投稿在IJCAI上的工作，文章主要是针对句子匹配提出了一个新颖的模型，今天我将对这篇论文做个学习笔记，该论文工作我也想到了，我是从阅读理解模型上受到启发的，实验做了一小半的时候读到了这篇论文，很可惜只能另想点了。</p>
-<h2 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h2><p>Natural language sentence matching (NLSM)主要就是比较两个句子并识别他们的关系，适用多个任务，例如：复述识别 文本蕴涵 问答排序等</p>
+<h2 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h2><p>Natural language sentence matching (NLSM)主要就是比较两个句子并识别他们的关系，适用多个任务</p>
 <ol>
 <li><p>Paraphrase Identification (PI) ：判断两个句子是否表达同样的意思（identifing whether two sentences express the same </p>
 </li>
@@ -416,7 +416,7 @@
 <li>“Siamese”<br>架构：使用相同的神经网络encoder对输入的两句话进行编码成句子向量，再对两个句子进行一个匹配预测处理，例如两个句子向量进行点乘，余弦，欧几里得距离计算，再softmax得出结果。<br> 优点：参数共享（两个句子编码层）是模型更小，训练更快。</li>
 <li>“Matching aggregation”<br>架构：由<a href="http://xueshu.baidu.com/s?wd=paperuri%3A%288978eef927945be5b64494c8bd4e3388%29&amp;filter=sc_long_sign&amp;tn=SE_xueshusource_2kduw22v&amp;sc_vurl=http%3A%2F%2Farxiv.org%2Fabs%2F1611.01747&amp;ie=utf-8&amp;sc_us=15995814480716425477" target="_blank" rel="noopener">Wang and jiang, 2016</a>提出，先对输入的两个句子进行匹配处理，之后再将匹配结果聚合到一个向量中，最后做最终结果处理(softmax之类)<br>优点：捕获两个句子之间更多的交互特征。<br>缺点：<strong>两个句子之间的匹配不充分，只有词与词，短语到短语，单个方向上的匹配</strong></li>
 </ul>
-<p>本文提出的模型属于第二类框架，并且基于第二个框架上缺点之上，给出的一个更加晚上的架构，主要核心在于两个句子之间的匹配。</p>
+<p>本文提出的模型属于第二类框架，并且基于第二个框架上缺点之上，给出的一个更加完善的架构，主要核心在于两个句子之间的匹配。</p>
 <p>个人分析：该文提出的架构，类似于阅读理解上的模型，例如BiDAF，对输入的两句向量表示，做了两个方向上的匹配处理，在做最终的处理，基本架构一致。</p>
 <h2 id="模型框架"><a href="#模型框架" class="headerlink" title="模型框架"></a>模型框架</h2><p>该模型分层五层<br><img src="/2018/06/20/双向多感知匹配/1.png" alt="模型整体架构图"></p>
 <ol>
