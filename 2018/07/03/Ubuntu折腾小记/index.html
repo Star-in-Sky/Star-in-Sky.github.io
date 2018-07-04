@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/5.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/6.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/7.png">
-<meta property="og:updated_time" content="2018-07-04T07:29:10.170Z">
+<meta property="og:updated_time" content="2018-07-04T08:33:26.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu18.04折腾小记">
 <meta name="twitter:description" content="日常工作是一台Linux台式机+windows笔记本。Linux系统我一向是以Ubuntu为主，今天主要想记录一下Ubuntu安装配置的相关记录。PS: 正好嫌弃之前的环境配置的比较乱，而且有了Ubuntu18.04，所以准备重装升级一下。 Ubuntu系统安装安装准备 数据备份，良好的数据备份习惯可能在很多重要的时刻拯救你！ U盘启动盘制作  系统下载 制作U盘启动，百度一下会有很多相关教程，这">
@@ -409,7 +409,7 @@
 </li>
 <li><p>效果如下<br><img src="/2018/07/03/Ubuntu折腾小记/5.jpg" alt="zsh效果"></p>
 </li>
-<li><p>注意，安装了zsh之后，之后一些shell配置，需要修改的是主目录下的隐藏文件 <strong>.zshrc</strong><br><img src="/2018/07/03/Ubuntu折腾小记/6.jpg" alt="zshrc"></p>
+<li><p>注意，安装了zsh之后，之后如果涉及到一些shell配置，需要修改的是主目录下的隐藏文件 <strong>.zshrc</strong><br><img src="/2018/07/03/Ubuntu折腾小记/6.jpg" alt="zshrc"></p>
 </li>
 </ul>
 <h3 id="vim配置"><a href="#vim配置" class="headerlink" title="vim配置"></a>vim配置</h3><p>Vim，对于广大代码编辑工作者来说都是不陌生的。我事实上也并不是对vim操作特别熟练于心。这边主要是配置一下vim，使得vim更加友好。</p>
@@ -426,6 +426,34 @@
 </ul>
 </blockquote>
 <p> 显示的目录和函数列表，鼠标点击能够跳转。还有其他命令操作可以自己探索~</p>
+<h3 id="anaconda安装"><a href="#anaconda安装" class="headerlink" title="anaconda安装"></a>anaconda安装</h3><p>现在机器学习，自然语言处理中都使用到Python，Ubuntu18.04自带安装好的Python2.7 与 Python3.6。这里推荐安装anaconda是因为anaconda能够方便管理Python环境等一系列优点。<br>安装步骤：</p>
+<ul>
+<li>下载 <a href="https://www.anaconda.com/download/#linux" target="_blank" rel="noopener">官方链接</a></li>
+<li>直接运行 bash Anacondaxxxxxxxx.sh</li>
+</ul>
+<p>新建环境：</p>
+<blockquote>
+<p>conda create -n 环境名字 python=X.X (2.7,3.6)，环境名字可以在Anaconda安装目录envs文件下找到。</p>
+</blockquote>
+<p>激活环境：</p>
+<blockquote>
+<p>source activate 环境名字</p>
+</blockquote>
+<p>关闭环境：</p>
+<blockquote>
+<p>source deactivate</p>
+</blockquote>
+<p>删除环境：</p>
+<blockquote>
+<p>conda remove -n 环境名字 –all</p>
+</blockquote>
+<p>克隆环境：</p>
+<blockquote>
+<p>conda create -n 环境名字 –clone 已有的环境名</p>
+</blockquote>
+<h3 id="配置Ubuntu18-04软件源"><a href="#配置Ubuntu18-04软件源" class="headerlink" title="配置Ubuntu18.04软件源"></a>配置Ubuntu18.04软件源</h3><p>Ubuntu软件源，配置成国内的软件源，在软件更新的时候速度更快。</p>
+<p>具体操作，依照以下的博客进行操作，主要是在 /etc/apt/source.list文件中添加国内源。</p>
+<p><a href="https://blog.csdn.net/shanpenghui/article/details/80433555" target="_blank" rel="noopener">Ubuntu添加软件源</a></p>
 
       
     </div>
@@ -683,7 +711,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu系统安装"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu系统安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装准备"><span class="nav-number">1.1.</span> <span class="nav-text">安装准备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu环境配置"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入法配置"><span class="nav-number">2.1.</span> <span class="nav-text">输入法配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh配置"><span class="nav-number">2.2.</span> <span class="nav-text">zsh配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim配置"><span class="nav-number">2.3.</span> <span class="nav-text">vim配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu系统安装"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu系统安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装准备"><span class="nav-number">1.1.</span> <span class="nav-text">安装准备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu环境配置"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入法配置"><span class="nav-number">2.1.</span> <span class="nav-text">输入法配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh配置"><span class="nav-number">2.2.</span> <span class="nav-text">zsh配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim配置"><span class="nav-number">2.3.</span> <span class="nav-text">vim配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#anaconda安装"><span class="nav-number">2.4.</span> <span class="nav-text">anaconda安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Ubuntu18-04软件源"><span class="nav-number">2.5.</span> <span class="nav-text">配置Ubuntu18.04软件源</span></a></li></ol></li></ol></div>
             
 
           </div>
