@@ -94,7 +94,8 @@
 <meta property="og:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/5.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/6.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/7.png">
-<meta property="og:updated_time" content="2018-07-04T08:33:26.246Z">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/8.png">
+<meta property="og:updated_time" content="2018-07-04T10:10:27.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu18.04折腾小记">
 <meta name="twitter:description" content="日常工作是一台Linux台式机+windows笔记本。Linux系统我一向是以Ubuntu为主，今天主要想记录一下Ubuntu安装配置的相关记录。PS: 正好嫌弃之前的环境配置的比较乱，而且有了Ubuntu18.04，所以准备重装升级一下。 Ubuntu系统安装安装准备 数据备份，良好的数据备份习惯可能在很多重要的时刻拯救你！ U盘启动盘制作  系统下载 制作U盘启动，百度一下会有很多相关教程，这">
@@ -454,6 +455,28 @@
 <h3 id="配置Ubuntu18-04软件源"><a href="#配置Ubuntu18-04软件源" class="headerlink" title="配置Ubuntu18.04软件源"></a>配置Ubuntu18.04软件源</h3><p>Ubuntu软件源，配置成国内的软件源，在软件更新的时候速度更快。</p>
 <p>具体操作，依照以下的博客进行操作，主要是在 /etc/apt/source.list文件中添加国内源。</p>
 <p><a href="https://blog.csdn.net/shanpenghui/article/details/80433555" target="_blank" rel="noopener">Ubuntu添加软件源</a></p>
+<h3 id="配置jupyter"><a href="#配置jupyter" class="headerlink" title="配置jupyter"></a>配置jupyter</h3><p>jupyter能够方便的远程连接调试代码，这里简单记录一下它的配置，使得使用笔记本能够连接到ubuntu上的jupyter。</p>
+<ul>
+<li>在终端运行 <code>jupyter-notebook --generate-config</code>, 会在用户目录下生成隐藏文件 “.jupyter/jupyter_notebook_config.py”</li>
+<li>编辑该文件，修改三个地方，vim打开jupyter_notebook_config.py<blockquote>
+<ul>
+<li>修改Line：174， 将 <strong>c.NotebookApp.ip = ‘lockhost’</strong> –&gt; <strong>c.NotebookApp.ip = ‘*’</strong></li>
+<li>跳转到Line: 226, 能够看到一行代码 <code>from notebook.auth import passwd; passwd()</code>,该行代码是生成密码的函数，打开Python输入代码，会生成一行密码</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>将生成的密码复制到 Line: 229行， <code>c.NotebookApp.password= &#39;密码粘贴处&#39;</code>，注意该行的注释</li>
+<li>将Line：220行中的 <code>True</code> 改成 <code>False</code>, 这样，笔记本调用jupyter的时候，本地不会打开浏览器界面。</li>
+</ul>
+</blockquote>
+<p>使用：</p>
+<ul>
+<li>在Ubuntu上终端输入：<code>jupyter-notebook</code></li>
+<li>在笔记本浏览器上输入： <code>http://10.10.65.102:8888/</code> ip+端口<br>最终效果如下：<br><img src="/2018/07/03/Ubuntu折腾小记/8.png" alt="jupyter效果图"></li>
+</ul>
 
       
     </div>
@@ -711,7 +734,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu系统安装"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu系统安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装准备"><span class="nav-number">1.1.</span> <span class="nav-text">安装准备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu环境配置"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入法配置"><span class="nav-number">2.1.</span> <span class="nav-text">输入法配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh配置"><span class="nav-number">2.2.</span> <span class="nav-text">zsh配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim配置"><span class="nav-number">2.3.</span> <span class="nav-text">vim配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#anaconda安装"><span class="nav-number">2.4.</span> <span class="nav-text">anaconda安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Ubuntu18-04软件源"><span class="nav-number">2.5.</span> <span class="nav-text">配置Ubuntu18.04软件源</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu系统安装"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu系统安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装准备"><span class="nav-number">1.1.</span> <span class="nav-text">安装准备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu环境配置"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入法配置"><span class="nav-number">2.1.</span> <span class="nav-text">输入法配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh配置"><span class="nav-number">2.2.</span> <span class="nav-text">zsh配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim配置"><span class="nav-number">2.3.</span> <span class="nav-text">vim配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#anaconda安装"><span class="nav-number">2.4.</span> <span class="nav-text">anaconda安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Ubuntu18-04软件源"><span class="nav-number">2.5.</span> <span class="nav-text">配置Ubuntu18.04软件源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置jupyter"><span class="nav-number">2.6.</span> <span class="nav-text">配置jupyter</span></a></li></ol></li></ol></div>
             
 
           </div>
