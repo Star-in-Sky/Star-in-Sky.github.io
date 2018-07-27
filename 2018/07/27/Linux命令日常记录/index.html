@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="我的Ubuntu曾经有一个程序创建了70W+的文件夹，并且没有文件夹都不是空文件夹；如何删除这些文件资料小小的困扰了我，下面记录大批量文件删除。（注：文件夹是以数字命名，1,2,3…,70000,…） 文件删除rm -rf xxx参数含义：  r：删除文件夹，递归删除文件夹中的所有文件（包括文件夹中文件夹）f: 强制删除  在这里，我的一个文件夹中包含了70W+的文件数据，使用该命令时会出现 参数">
+<meta name="description" content="我的Ubuntu曾经有一个程序创建了70W+的文件夹，并且每个文件夹都不是空文件夹；如何删除这些文件资料小小的困扰了我，下面记录大批量文件删除。（注：文件夹是以数字命名，1,2,3…,70000,…） 文件删除rm -rf xxx参数含义：  r：删除文件夹，递归删除文件夹中的所有文件（包括文件夹中文件夹） f: 强制删除  在这里，我的一个文件夹中包含了70W+的文件数据，使用该命令时会出现 参">
 <meta name="keywords" content="Linux命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="超量文件删除">
+<meta property="og:title" content="Linux超量文件删除">
 <meta property="og:url" content="http://yoursite.com/2018/07/27/Linux命令日常记录/index.html">
 <meta property="og:site_name" content="Chen Xin">
-<meta property="og:description" content="我的Ubuntu曾经有一个程序创建了70W+的文件夹，并且没有文件夹都不是空文件夹；如何删除这些文件资料小小的困扰了我，下面记录大批量文件删除。（注：文件夹是以数字命名，1,2,3…,70000,…） 文件删除rm -rf xxx参数含义：  r：删除文件夹，递归删除文件夹中的所有文件（包括文件夹中文件夹）f: 强制删除  在这里，我的一个文件夹中包含了70W+的文件数据，使用该命令时会出现 参数">
+<meta property="og:description" content="我的Ubuntu曾经有一个程序创建了70W+的文件夹，并且每个文件夹都不是空文件夹；如何删除这些文件资料小小的困扰了我，下面记录大批量文件删除。（注：文件夹是以数字命名，1,2,3…,70000,…） 文件删除rm -rf xxx参数含义：  r：删除文件夹，递归删除文件夹中的所有文件（包括文件夹中文件夹） f: 强制删除  在这里，我的一个文件夹中包含了70W+的文件数据，使用该命令时会出现 参">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-27T02:24:46.502Z">
+<meta property="og:updated_time" content="2018-07-27T02:30:18.734Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="超量文件删除">
-<meta name="twitter:description" content="我的Ubuntu曾经有一个程序创建了70W+的文件夹，并且没有文件夹都不是空文件夹；如何删除这些文件资料小小的困扰了我，下面记录大批量文件删除。（注：文件夹是以数字命名，1,2,3…,70000,…） 文件删除rm -rf xxx参数含义：  r：删除文件夹，递归删除文件夹中的所有文件（包括文件夹中文件夹）f: 强制删除  在这里，我的一个文件夹中包含了70W+的文件数据，使用该命令时会出现 参数">
+<meta name="twitter:title" content="Linux超量文件删除">
+<meta name="twitter:description" content="我的Ubuntu曾经有一个程序创建了70W+的文件夹，并且每个文件夹都不是空文件夹；如何删除这些文件资料小小的困扰了我，下面记录大批量文件删除。（注：文件夹是以数字命名，1,2,3…,70000,…） 文件删除rm -rf xxx参数含义：  r：删除文件夹，递归删除文件夹中的所有文件（包括文件夹中文件夹） f: 强制删除  在这里，我的一个文件夹中包含了70W+的文件数据，使用该命令时会出现 参">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>超量文件删除 | Chen Xin</title>
+  <title>Linux超量文件删除 | Chen Xin</title>
   
 
 
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">超量文件删除</h1>
+          <h1 class="post-title" itemprop="name headline">Linux超量文件删除</h1>
         
 
         <div class="post-meta">
@@ -367,16 +367,19 @@
       
 
       
-        <p>我的Ubuntu曾经有一个程序创建了70W+的文件夹，并且没有文件夹都不是空文件夹；如何删除这些文件资料小小的困扰了我，下面记录大批量文件删除。（注：文件夹是以数字命名，1,2,3…,70000,…）</p>
+        <p>我的Ubuntu曾经有一个程序创建了70W+的文件夹，并且每个文件夹都不是空文件夹；如何删除这些文件资料小小的困扰了我，下面记录大批量文件删除。（注：文件夹是以数字命名，1,2,3…,70000,…）</p>
 <h1 id="文件删除"><a href="#文件删除" class="headerlink" title="文件删除"></a>文件删除</h1><p>rm -rf xxx<br>参数含义：</p>
-<blockquote>
-<p>r：删除文件夹，递归删除文件夹中的所有文件（包括文件夹中文件夹）<br>f: 强制删除</p>
-</blockquote>
+<ul>
+<li>r：删除文件夹，递归删除文件夹中的所有文件（包括文件夹中文件夹）</li>
+<li>f: 强制删除</li>
+</ul>
 <p>在这里，我的一个文件夹中包含了70W+的文件数据，使用该命令时会出现 <strong>参数列表过长</strong> 的错误信息。望文生义，就是文件太多导致的，那该如何删除呢？下面给大家介绍一个组合命令。</p>
 <p><strong>find 1<em> -name “</em>“ | xargs rm -rf “*”</strong><br>详细解释：我们遇到的问题是参数列表过长，要删除的文件太多导致失败，那最简单的道理就是我不一下子全部删除这么多，我一小部分一小部分的删除。所以，这里前部分命令时查找符合条件的文件，后半部分是删除找到的文件。</p>
-<blockquote>
-<p>find 1<em> -name “</em>“ ：查找所有以“1”开头的文件夹名，“1<em>” 这里是正则项，<br>xargs rm -rf “</em>“：前部分find找到之后，调用该命令进行删除，这里的“<em>” 对应前部分的 “</em>”<br>注：这里的 -name “<em>“ 必须是“</em>“，后面的也必须是 ”<em>“，这样才能删除，我原本理解是find找到文件之后通过 ”-name“重新命名，可以任意取名，列如使用这个命令：find 1</em> -name “1” | xargs rm -rf “1”,按照我理解以为这样也可以成功，但是事实上实验发现，这样失败，必须是 ”*“ 才能删除。</p>
-</blockquote>
+<ul>
+<li>find 1<em> -name “</em>“ ：查找所有以“1”开头的文件夹名，“1*” 这里是正则项，</li>
+<li>xargs rm -rf “<em>“：前部分find找到之后，调用该命令进行删除，这里的“</em>” 对应前部分的 “*”</li>
+<li>注：这里的 -name “<em>“ 必须是“</em>“，后面的也必须是 ”<em>“，这样才能删除，我原本理解是find找到文件之后通过 ”-name“重新命名，可以任意取名，列如使用这个命令：find 1</em> -name “1” | xargs rm -rf “1”,按照我理解以为这样也可以成功，但是事实上实验发现，这样失败，必须是 ”*“ 才能删除。</li>
+</ul>
 
       
     </div>
