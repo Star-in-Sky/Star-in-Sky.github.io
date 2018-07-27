@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="IT," />
+  <meta name="keywords" content="Linux命令," />
 
 
 
@@ -79,27 +79,18 @@
 
 
 
-<meta name="description" content="日常工作是一台Linux台式机+windows笔记本。Linux系统我一向是以Ubuntu为主，今天主要想记录一下Ubuntu安装配置的相关记录。PS: 正好嫌弃之前的环境配置的比较乱，而且有了Ubuntu18.04，所以准备重装升级一下。 Ubuntu系统安装安装准备 数据备份，良好的数据备份习惯可能在很多重要的时刻拯救你！ U盘启动盘制作  系统下载 制作U盘启动，百度一下会有很多相关教程，这">
-<meta name="keywords" content="IT">
+<meta name="description" content="我的Ubuntu曾经有一个程序创建了70W+的文件夹，并且没有文件夹都不是空文件夹；如何删除这些文件资料小小的困扰了我，下面记录大批量文件删除。（注：文件夹是以数字命名，1,2,3…,70000,…） 文件删除rm -rf xxx参数含义：  r：删除文件夹，递归删除文件夹中的所有文件（包括文件夹中文件夹）f: 强制删除  在这里，我的一个文件夹中包含了70W+的文件数据，使用该命令时会出现 参数">
+<meta name="keywords" content="Linux命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu18.04折腾小记">
-<meta property="og:url" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/index.html">
+<meta property="og:title" content="超量文件删除">
+<meta property="og:url" content="http://yoursite.com/2018/07/27/Linux命令日常记录/index.html">
 <meta property="og:site_name" content="Chen Xin">
-<meta property="og:description" content="日常工作是一台Linux台式机+windows笔记本。Linux系统我一向是以Ubuntu为主，今天主要想记录一下Ubuntu安装配置的相关记录。PS: 正好嫌弃之前的环境配置的比较乱，而且有了Ubuntu18.04，所以准备重装升级一下。 Ubuntu系统安装安装准备 数据备份，良好的数据备份习惯可能在很多重要的时刻拯救你！ U盘启动盘制作  系统下载 制作U盘启动，百度一下会有很多相关教程，这">
+<meta property="og:description" content="我的Ubuntu曾经有一个程序创建了70W+的文件夹，并且没有文件夹都不是空文件夹；如何删除这些文件资料小小的困扰了我，下面记录大批量文件删除。（注：文件夹是以数字命名，1,2,3…,70000,…） 文件删除rm -rf xxx参数含义：  r：删除文件夹，递归删除文件夹中的所有文件（包括文件夹中文件夹）f: 强制删除  在这里，我的一个文件夹中包含了70W+的文件数据，使用该命令时会出现 参数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/1.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/2.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/3.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/4.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/5.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/6.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/7.png">
-<meta property="og:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/8.png">
-<meta property="og:updated_time" content="2018-07-04T10:12:30.735Z">
+<meta property="og:updated_time" content="2018-07-27T02:24:46.502Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu18.04折腾小记">
-<meta name="twitter:description" content="日常工作是一台Linux台式机+windows笔记本。Linux系统我一向是以Ubuntu为主，今天主要想记录一下Ubuntu安装配置的相关记录。PS: 正好嫌弃之前的环境配置的比较乱，而且有了Ubuntu18.04，所以准备重装升级一下。 Ubuntu系统安装安装准备 数据备份，良好的数据备份习惯可能在很多重要的时刻拯救你！ U盘启动盘制作  系统下载 制作U盘启动，百度一下会有很多相关教程，这">
-<meta name="twitter:image" content="http://yoursite.com/2018/07/03/Ubuntu折腾小记/1.jpg">
+<meta name="twitter:title" content="超量文件删除">
+<meta name="twitter:description" content="我的Ubuntu曾经有一个程序创建了70W+的文件夹，并且没有文件夹都不是空文件夹；如何删除这些文件资料小小的困扰了我，下面记录大批量文件删除。（注：文件夹是以数字命名，1,2,3…,70000,…） 文件删除rm -rf xxx参数含义：  r：删除文件夹，递归删除文件夹中的所有文件（包括文件夹中文件夹）f: 强制删除  在这里，我的一个文件夹中包含了70W+的文件数据，使用该命令时会出现 参数">
 
 
 
@@ -129,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/03/Ubuntu折腾小记/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/27/Linux命令日常记录/"/>
 
 
 
 
 
-  <title>Ubuntu18.04折腾小记 | Chen Xin</title>
+  <title>超量文件删除 | Chen Xin</title>
   
 
 
@@ -272,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/03/Ubuntu折腾小记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/27/Linux命令日常记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chenxin">
@@ -289,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Ubuntu18.04折腾小记</h1>
+          <h1 class="post-title" itemprop="name headline">超量文件删除</h1>
         
 
         <div class="post-meta">
@@ -301,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-03T10:37:28+08:00">
-                2018-07-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-27T10:01:29+08:00">
+                2018-07-27
               </time>
             
 
@@ -324,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/IT杂记/" itemprop="url" rel="index">
-                    <span itemprop="name">IT杂记</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -342,8 +333,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/03/Ubuntu折腾小记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/03/Ubuntu折腾小记/" itemprop="commentCount"></span>
+                <a href="/2018/07/27/Linux命令日常记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/27/Linux命令日常记录/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -376,98 +367,16 @@
       
 
       
-        <p>日常工作是一台Linux台式机+windows笔记本。Linux系统我一向是以Ubuntu为主，今天主要想记录一下Ubuntu安装配置的相关记录。PS: 正好嫌弃之前的环境配置的比较乱，而且有了Ubuntu18.04，所以准备重装升级一下。</p>
-<h2 id="Ubuntu系统安装"><a href="#Ubuntu系统安装" class="headerlink" title="Ubuntu系统安装"></a>Ubuntu系统安装</h2><h3 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h3><ul>
-<li>数据备份，良好的数据备份习惯可能在很多重要的时刻拯救你！</li>
-<li>U盘启动盘制作<blockquote>
-<ul>
-<li><a href="https://www.ubuntu.com/download/desktop" target="_blank" rel="noopener">系统下载</a></li>
-<li>制作U盘启动，百度一下会有很多相关教程，这里我直接提供Ubuntu官方提供的<a href="https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows#0" target="_blank" rel="noopener">U盘启动制作教程</a>, 该教程是在Windows系统上制作U盘启动，其中有Ubuntu系统与Mac系统上制作U盘启动的教程。</li>
-<li>通过U盘启动盘安装，该安装教程仍然可以从Ubuntu<a href="https://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-desktop#0" target="_blank" rel="noopener">官网</a>查看到，同时百度一下，网上有很多教程，这里就不详细叙述了。</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<p><img src="/2018/07/03/Ubuntu折腾小记/1.jpg" alt="Ubuntu18.04桌面"></p>
-<p>在简单使用了一下之后，不得不说，18.04版本的确在一些方面有了很大的升级。最重要的就是它的<strong>Ubuntu软件</strong>，之前版本的Ubuntu，软件中心基本就是摆设，没有多少可用的软件，但是18.04版本的Ubuntu要丰富些，而且感觉安装软件的时候也快捷一些。</p>
-<h2 id="Ubuntu环境配置"><a href="#Ubuntu环境配置" class="headerlink" title="Ubuntu环境配置"></a>Ubuntu环境配置</h2><p>在安装完成Ubuntu之后，我们需要配置一些我们需要的工具，环境等，该有的软件更新先更新一下。</p>
-<h3 id="输入法配置"><a href="#输入法配置" class="headerlink" title="输入法配置"></a>输入法配置</h3><p>习惯了各种灵活快捷的中文输入法，再使用Ubuntu系统自带的中文输入法的确是让人头疼的一件小事。 这里讲述一下，如何安装配置搜狗输入法。</p>
+        <p>我的Ubuntu曾经有一个程序创建了70W+的文件夹，并且没有文件夹都不是空文件夹；如何删除这些文件资料小小的困扰了我，下面记录大批量文件删除。（注：文件夹是以数字命名，1,2,3…,70000,…）</p>
+<h1 id="文件删除"><a href="#文件删除" class="headerlink" title="文件删除"></a>文件删除</h1><p>rm -rf xxx<br>参数含义：</p>
 <blockquote>
-<ul>
-<li>下载搜狗输入法的<a href="https://pinyin.sogou.com/linux/?r=pinyin" target="_blank" rel="noopener">Linux版本</a>。我这里下载的是64位的版本。</li>
-<li>先不要双击安装，打开应用商店，搜索fcitx，将搜索到的所有小企鹅图标都安装。<br><img src="/2018/07/03/Ubuntu折腾小记/2.jpg" alt="fcitx"></li>
-<li>安装好fcitx之后，在双击搜狗输入法安装包安装，之后在终端输入<strong>sudo apt remove ibus* </strong>，将ibus输入法删除。</li>
-<li>打开设置区域和语言，管理已安装的语言。点击会出现一个安装选项，选择稍后提醒，不用点击安装<br><img src="/2018/07/03/Ubuntu折腾小记/3.jpg" alt="语言支持"><br>在将语言支持中的键盘输入法切换成fictx，重启电脑，搜狗输入法就可以使用了<br><img src="/2018/07/03/Ubuntu折腾小记/4.jpg" alt="语言支持"></li>
-</ul>
+<p>r：删除文件夹，递归删除文件夹中的所有文件（包括文件夹中文件夹）<br>f: 强制删除</p>
 </blockquote>
-<h3 id="zsh配置"><a href="#zsh配置" class="headerlink" title="zsh配置"></a>zsh配置</h3><p>Ubuntu自带的是bash, zsh是bash的增强版，显示比bash更友好。</p>
-<ul>
-<li><p>安装zsh,命令：<br>apt-get install zsh</p>
-</li>
-<li><p>修改默认的Shell，将其从bash转到zsh， 命令：<br>chsh -s /bin/zsh</p>
-</li>
-<li><p>配置密码文件（PS: 最好一开始先备份/etc/passwd），将第一行<strong>/bin/bash</strong>改成<strong>/bin/zsh</strong>,命令：<br>sudo vi /etc/passwd</p>
-</li>
-<li><p>效果如下<br><img src="/2018/07/03/Ubuntu折腾小记/5.jpg" alt="zsh效果"></p>
-</li>
-<li><p>注意，安装了zsh之后，之后如果涉及到一些shell配置，需要修改的是主目录下的隐藏文件 <strong>.zshrc</strong><br><img src="/2018/07/03/Ubuntu折腾小记/6.jpg" alt="zshrc"></p>
-</li>
-</ul>
-<h3 id="vim配置"><a href="#vim配置" class="headerlink" title="vim配置"></a>vim配置</h3><p>Vim，对于广大代码编辑工作者来说都是不陌生的。我事实上也并不是对vim操作特别熟练于心。这边主要是配置一下vim，使得vim更加友好。</p>
-<ul>
-<li>第一步是安装vim，在终端输入vim如果没有，系统会提升安装的命令。</li>
-<li>配置vim这里采用了一个非常简单的操作，将我分享的两个文件 <strong>.vim</strong> 与 <strong>.vimrc</strong> 直接复制到用户目录下就可以了<br><a href="https://pan.baidu.com/s/1RSTODGDr3IuPH6p2Oj9Vkw" target="_blank" rel="noopener">百度云盘链接</a>, 密码: ytqv</li>
-<li>效果如下图所示<br><img src="/2018/07/03/Ubuntu折腾小记/7.png" alt="vim"></li>
-</ul>
-<p>两个主要的命令，</p>
+<p>在这里，我的一个文件夹中包含了70W+的文件数据，使用该命令时会出现 <strong>参数列表过长</strong> 的错误信息。望文生义，就是文件太多导致的，那该如何删除呢？下面给大家介绍一个组合命令。</p>
+<p><strong>find 1<em> -name “</em>“ | xargs rm -rf “*”</strong><br>详细解释：我们遇到的问题是参数列表过长，要删除的文件太多导致失败，那最简单的道理就是我不一下子全部删除这么多，我一小部分一小部分的删除。所以，这里前部分命令时查找符合条件的文件，后半部分是删除找到的文件。</p>
 <blockquote>
-<ul>
-<li>NERDTree，显示目录，如上图右部分所示。</li>
-<li>Tlist, 显示代码的函数列表，如上图左部分所示。</li>
-</ul>
+<p>find 1<em> -name “</em>“ ：查找所有以“1”开头的文件夹名，“1<em>” 这里是正则项，<br>xargs rm -rf “</em>“：前部分find找到之后，调用该命令进行删除，这里的“<em>” 对应前部分的 “</em>”<br>注：这里的 -name “<em>“ 必须是“</em>“，后面的也必须是 ”<em>“，这样才能删除，我原本理解是find找到文件之后通过 ”-name“重新命名，可以任意取名，列如使用这个命令：find 1</em> -name “1” | xargs rm -rf “1”,按照我理解以为这样也可以成功，但是事实上实验发现，这样失败，必须是 ”*“ 才能删除。</p>
 </blockquote>
-<p> 显示的目录和函数列表，鼠标点击能够跳转。还有其他命令操作可以自己探索~</p>
-<h3 id="anaconda安装"><a href="#anaconda安装" class="headerlink" title="anaconda安装"></a>anaconda安装</h3><p>现在机器学习，自然语言处理中都使用到Python，Ubuntu18.04自带安装好的Python2.7 与 Python3.6。这里推荐安装anaconda是因为anaconda能够方便管理Python环境等一系列优点。<br>安装步骤：</p>
-<ul>
-<li>下载 <a href="https://www.anaconda.com/download/#linux" target="_blank" rel="noopener">官方链接</a></li>
-<li>直接运行 bash Anacondaxxxxxxxx.sh</li>
-</ul>
-<p>新建环境：</p>
-<blockquote>
-<p>conda create -n 环境名字 python=X.X (2.7,3.6)，环境名字可以在Anaconda安装目录envs文件下找到。</p>
-</blockquote>
-<p>激活环境：</p>
-<blockquote>
-<p>source activate 环境名字</p>
-</blockquote>
-<p>关闭环境：</p>
-<blockquote>
-<p>source deactivate</p>
-</blockquote>
-<p>删除环境：</p>
-<blockquote>
-<p>conda remove -n 环境名字 –all</p>
-</blockquote>
-<p>克隆环境：</p>
-<blockquote>
-<p>conda create -n 环境名字 –clone 已有的环境名</p>
-</blockquote>
-<h3 id="配置Ubuntu18-04软件源"><a href="#配置Ubuntu18-04软件源" class="headerlink" title="配置Ubuntu18.04软件源"></a>配置Ubuntu18.04软件源</h3><p>Ubuntu软件源，配置成国内的软件源，在软件更新的时候速度更快。</p>
-<p>具体操作，依照以下的博客进行操作，主要是在 /etc/apt/source.list文件中添加国内源。</p>
-<p><a href="https://blog.csdn.net/shanpenghui/article/details/80433555" target="_blank" rel="noopener">Ubuntu添加软件源</a></p>
-<h3 id="配置jupyter"><a href="#配置jupyter" class="headerlink" title="配置jupyter"></a>配置jupyter</h3><p>jupyter能够方便的远程连接调试代码，这里简单记录一下它的配置，使得使用笔记本能够连接到ubuntu上的jupyter。</p>
-<ul>
-<li>在终端运行 <code>jupyter-notebook --generate-config</code>, 会在用户目录下生成隐藏文件 <code>.jupyter/jupyter_notebook_config.py</code></li>
-<li>编辑该文件，修改三个地方，vim打开jupyter_notebook_config.py<ul>
-<li>修改Line：174， 将 <strong>c.NotebookApp.ip = ‘lockhost’</strong> –&gt; <strong>c.NotebookApp.ip = ‘*’</strong></li>
-<li>跳转到Line: 226, 能够看到一行代码 <code>from notebook.auth import passwd; passwd()</code>,该行代码是生成密码的函数，打开Python输入代码，会生成一行密码</li>
-<li>将生成的密码复制到 Line: 229行， <code>c.NotebookApp.password= &#39;密码粘贴处&#39;</code>，注意该行的注释</li>
-<li>将Line：220行中的 <code>True</code> 改成 <code>False</code>, 这样，笔记本调用jupyter的时候，本地不会打开浏览器界面。<br>使用：</li>
-</ul>
-</li>
-<li>在Ubuntu上终端输入：<code>jupyter-notebook</code></li>
-<li>在笔记本浏览器上输入： <code>http://10.10.65.102:8888/</code> ip+端口<br>最终效果如下：<br><img src="/2018/07/03/Ubuntu折腾小记/8.png" alt="jupyter效果图"></li>
-</ul>
 
       
     </div>
@@ -509,7 +418,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/IT/" rel="tag"># IT</a>
+            <a href="/tags/Linux命令/" rel="tag"># Linux命令</a>
           
         </div>
       
@@ -522,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/02/动物世界/" rel="next" title="《动物世界》，李易峰的最佳代表作">
-                <i class="fa fa-chevron-left"></i> 《动物世界》，李易峰的最佳代表作
+              <a href="/2018/07/03/Ubuntu折腾小记/" rel="next" title="Ubuntu18.04折腾小记">
+                <i class="fa fa-chevron-left"></i> Ubuntu18.04折腾小记
               </a>
             
           </div>
@@ -531,10 +440,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/27/Linux命令日常记录/" rel="prev" title="超量文件删除">
-                超量文件删除 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -729,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu系统安装"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu系统安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装准备"><span class="nav-number">1.1.</span> <span class="nav-text">安装准备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu环境配置"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入法配置"><span class="nav-number">2.1.</span> <span class="nav-text">输入法配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh配置"><span class="nav-number">2.2.</span> <span class="nav-text">zsh配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim配置"><span class="nav-number">2.3.</span> <span class="nav-text">vim配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#anaconda安装"><span class="nav-number">2.4.</span> <span class="nav-text">anaconda安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Ubuntu18-04软件源"><span class="nav-number">2.5.</span> <span class="nav-text">配置Ubuntu18.04软件源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置jupyter"><span class="nav-number">2.6.</span> <span class="nav-text">配置jupyter</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件删除"><span class="nav-number">1.</span> <span class="nav-text">文件删除</span></a></li></ol></div>
             
 
           </div>
