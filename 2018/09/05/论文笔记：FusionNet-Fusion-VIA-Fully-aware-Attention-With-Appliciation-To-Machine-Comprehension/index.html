@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="Chen Xin">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;这篇论文主要是关于阅读理解任务，是我今年上半年关注阅读理解任务时阅读的论文，当时读的有点懵，今天无意间浏览，有过一些积累回头再一次阅读，发现当时没懂的今天完全懂了，对整个论文的核心思想也彻底把握住，兴致起来写下这篇博文跟大家分享我的收获。 简要总结&amp;emsp;&amp;emsp;本文主要工作和创新点是针对注意力机制进行了改进，提出了一个新的概念history of word。顾名思">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-05T13:59:39.274Z">
+<meta property="og:image" content="http://yoursite.com/2018/09/05/论文笔记：FusionNet-Fusion-VIA-Fully-aware-Attention-With-Appliciation-To-Machine-Comprehension/1.jpg">
+<meta property="og:updated_time" content="2018-09-05T14:11:30.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记：FusionNet:Fusion VIA Fully-aware Attention With Appliciation To Machine Comprehension">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;这篇论文主要是关于阅读理解任务，是我今年上半年关注阅读理解任务时阅读的论文，当时读的有点懵，今天无意间浏览，有过一些积累回头再一次阅读，发现当时没懂的今天完全懂了，对整个论文的核心思想也彻底把握住，兴致起来写下这篇博文跟大家分享我的收获。 简要总结&amp;emsp;&amp;emsp;本文主要工作和创新点是针对注意力机制进行了改进，提出了一个新的概念history of word。顾名思">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/05/论文笔记：FusionNet-Fusion-VIA-Fully-aware-Attention-With-Appliciation-To-Machine-Comprehension/1.jpg">
 
 
 
@@ -379,11 +381,13 @@
 
       
         <p>&emsp;&emsp;这篇论文主要是关于阅读理解任务，是我今年上半年关注阅读理解任务时阅读的论文，当时读的有点懵，今天无意间浏览，有过一些积累回头再一次阅读，发现当时没懂的今天完全懂了，对整个论文的核心思想也彻底把握住，兴致起来写下这篇博文跟大家分享我的收获。</p>
-<h2 id="简要总结"><a href="#简要总结" class="headerlink" title="简要总结"></a>简要总结</h2><p>&emsp;&emsp;本文主要工作和创新点是针对注意力机制进行了改进，提出了一个新的概念<em>history of word</em>。顾名思义，“词的历史信息”！当文本在RNN等网络中“流动”的时候会产生对应文本中词的信息，例如在LSTM中，每个词会产生hidden的向量表示，传统的注意力机制并没有考虑<em>词的历史信息</em>，而本文的主要创新点就在于考虑<em>history of word</em>进行计算注意力权重改进注意力机制，并且针对阅读理解任务构建了一个模型架构并且取得优异的效果。<br>&emsp;&emsp;总之，本文的创新是有理有据的，工作内容充实，是一篇好论文，改进的注意力机制可以探索在其他任务上的应用。</p>
+<h2 id="简要总结"><a href="#简要总结" class="headerlink" title="简要总结"></a>简要总结</h2><p>&emsp;&emsp;本文主要工作和创新点是针对注意力机制进行了改进，提出了一个新的概念<strong>history of word</strong>。顾名思义，“词的历史信息”！当文本在RNN等网络中“流动”的时候会产生对应文本中词的信息，例如在LSTM中，每个词会产生hidden的向量表示，传统的注意力机制并没有考虑<strong>history of word</strong>，而本文的主要创新点就在于利用<strong>history of word</strong>进行计算注意力权重来改进注意力机制，并且针对阅读理解任务构建了一个模型架构并且取得优异的效果。<br>&emsp;&emsp;总之，本文的创新是有理有据的，工作内容充实，是一篇好论文，改进的注意力机制可以探索在其他任务上的应用。</p>
+<p><a href="https://github.com/momohuang/FusionNet-NLI" target="_blank" rel="noopener">本文的复现代码</a></p>
 <h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>&emsp;&emsp;本文先是简介阅读理解任务，并且提出了当前的工作并不能完整考虑段落或者问题的不同层级信息，以图像识别为例，可以从像素、笔画和形状来综合考虑。然后分析得出，如果考虑所有层次的信息，模型将太复杂并且难以学习，推测之前的工作因此才没有考虑所有层次信息，这里提出了一个注意评分函数来利用所有层次信息但是确实轻量级的，原文是这样的</p>
 <blockquote>
 <p>To alleviate this challenge, we identify an attention scoring function utilizing all layers of representation with less training burden.</p>
 </blockquote>
+<h2 id="对原有工作的总结"><a href="#对原有工作的总结" class="headerlink" title="对原有工作的总结"></a>对原有工作的总结</h2><p>&emsp;&emsp;<strong>fusion</strong>在文章中经常出现，<strong>Fusion</strong>：融合之意，文章总结之前的很多工作都是在如何更好针对阅读理解，将问题和段落进行融合，也就是很多其他阅读理解论文中提到的<strong>Interaction</strong>, C <-> Q。本文总结了三种级别上的<strong>Fusion</strong>:<br><img src="/2018/09/05/论文笔记：FusionNet-Fusion-VIA-Fully-aware-Attention-With-Appliciation-To-Machine-Comprehension/1.jpg" alt="三种级别的Fusion"></-></p>
 
       
     </div>
@@ -641,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简要总结"><span class="nav-number">1.</span> <span class="nav-text">简要总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动机"><span class="nav-number">2.</span> <span class="nav-text">动机</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简要总结"><span class="nav-number">1.</span> <span class="nav-text">简要总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动机"><span class="nav-number">2.</span> <span class="nav-text">动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对原有工作的总结"><span class="nav-number">3.</span> <span class="nav-text">对原有工作的总结</span></a></li></ol></div>
             
 
           </div>
