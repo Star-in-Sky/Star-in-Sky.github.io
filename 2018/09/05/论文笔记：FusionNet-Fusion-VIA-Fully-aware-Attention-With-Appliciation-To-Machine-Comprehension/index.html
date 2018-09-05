@@ -79,22 +79,18 @@
 
 
 
-<meta name="description" content="概要MSMARCO 是微软在2016年发布的阅读理解语料，该语料是在squad提出之后发布的，所以该语料可以说进一步突破了squad语料在阅读理解任务上的一些限制，例如，MSMARCO语料对于一个问题有多个相关的文本段落，而squad语料每个问题对应一个确定的文本段落。">
+<meta name="description" content="&amp;emsp;&amp;emsp;这篇论文主要是关于阅读理解任务，是我今年上半年关注阅读理解任务时阅读的论文，当时读的有点懵，今天无意间浏览，有过一些积累回头再一次阅读，发现当时没懂的今天完全懂了，对整个论文的核心思想也彻底把握住，兴致起来写下这篇博文跟大家分享我的收获。 简要总结&amp;emsp;&amp;emsp;本文主要工作和创新点是针对注意力机制进行了改进，提出了一个新的概念history of word。顾名思">
 <meta name="keywords" content="study">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论文笔记-MS MARCO">
-<meta property="og:url" content="http://yoursite.com/2018/05/23/论文笔记-msmarco/index.html">
+<meta property="og:title" content="论文笔记：FusionNet:Fusion VIA Fully-aware Attention With Appliciation To Machine Comprehension">
+<meta property="og:url" content="http://yoursite.com/2018/09/05/论文笔记：FusionNet-Fusion-VIA-Fully-aware-Attention-With-Appliciation-To-Machine-Comprehension/index.html">
 <meta property="og:site_name" content="Chen Xin">
-<meta property="og:description" content="概要MSMARCO 是微软在2016年发布的阅读理解语料，该语料是在squad提出之后发布的，所以该语料可以说进一步突破了squad语料在阅读理解任务上的一些限制，例如，MSMARCO语料对于一个问题有多个相关的文本段落，而squad语料每个问题对应一个确定的文本段落。">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;这篇论文主要是关于阅读理解任务，是我今年上半年关注阅读理解任务时阅读的论文，当时读的有点懵，今天无意间浏览，有过一些积累回头再一次阅读，发现当时没懂的今天完全懂了，对整个论文的核心思想也彻底把握住，兴致起来写下这篇博文跟大家分享我的收获。 简要总结&amp;emsp;&amp;emsp;本文主要工作和创新点是针对注意力机制进行了改进，提出了一个新的概念history of word。顾名思">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/05/23/论文笔记-msmarco/ms1.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/23/论文笔记-msmarco/2.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/23/论文笔记-msmarco/3.png">
-<meta property="og:updated_time" content="2018-05-23T13:15:45.172Z">
+<meta property="og:updated_time" content="2018-09-05T13:59:39.274Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="论文笔记-MS MARCO">
-<meta name="twitter:description" content="概要MSMARCO 是微软在2016年发布的阅读理解语料，该语料是在squad提出之后发布的，所以该语料可以说进一步突破了squad语料在阅读理解任务上的一些限制，例如，MSMARCO语料对于一个问题有多个相关的文本段落，而squad语料每个问题对应一个确定的文本段落。">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/23/论文笔记-msmarco/ms1.png">
+<meta name="twitter:title" content="论文笔记：FusionNet:Fusion VIA Fully-aware Attention With Appliciation To Machine Comprehension">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;这篇论文主要是关于阅读理解任务，是我今年上半年关注阅读理解任务时阅读的论文，当时读的有点懵，今天无意间浏览，有过一些积累回头再一次阅读，发现当时没懂的今天完全懂了，对整个论文的核心思想也彻底把握住，兴致起来写下这篇博文跟大家分享我的收获。 简要总结&amp;emsp;&amp;emsp;本文主要工作和创新点是针对注意力机制进行了改进，提出了一个新的概念history of word。顾名思">
 
 
 
@@ -124,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/23/论文笔记-msmarco/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/05/论文笔记：FusionNet-Fusion-VIA-Fully-aware-Attention-With-Appliciation-To-Machine-Comprehension/"/>
 
 
 
 
 
-  <title>论文笔记-MS MARCO | Chen Xin</title>
+  <title>论文笔记：FusionNet:Fusion VIA Fully-aware Attention With Appliciation To Machine Comprehension | Chen Xin</title>
   
 
 
@@ -267,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/论文笔记-msmarco/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/05/论文笔记：FusionNet-Fusion-VIA-Fully-aware-Attention-With-Appliciation-To-Machine-Comprehension/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chenxin">
@@ -284,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">论文笔记-MS MARCO</h1>
+          <h1 class="post-title" itemprop="name headline">论文笔记：FusionNet:Fusion VIA Fully-aware Attention With Appliciation To Machine Comprehension</h1>
         
 
         <div class="post-meta">
@@ -296,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-23T21:06:46+08:00">
-                2018-05-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-05T21:28:34+08:00">
+                2018-09-05
               </time>
             
 
@@ -348,8 +344,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/23/论文笔记-msmarco/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/23/论文笔记-msmarco/" itemprop="commentCount"></span>
+                <a href="/2018/09/05/论文笔记：FusionNet-Fusion-VIA-Fully-aware-Attention-With-Appliciation-To-Machine-Comprehension/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/05/论文笔记：FusionNet-Fusion-VIA-Fully-aware-Attention-With-Appliciation-To-Machine-Comprehension/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -382,123 +378,12 @@
       
 
       
-        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>MSMARCO 是微软在2016年发布的阅读理解语料，该语料是在squad提出之后发布的，所以该语料可以说进一步突破了squad语料在阅读理解任务上的一些限制，例如，MSMARCO语料对于一个问题有多个相关的文本段落，而squad语料每个问题对应一个确定的文本段落。<br><a id="more"></a><br>MARCO是微软基于搜索引擎BING构建的大规模英文阅读理解数据集，包含10万个问题和20万篇不重复的文档。MARCO数据集中的问题全部来自于 BING 的搜索日志，根据用户在BING 中输入的真实问题模拟搜索引擎中的真实应用场景，是该领域最有应用价值的数据集之一。(<a href="http://www.msmarco.org/dataset.aspx" target="_blank" rel="noopener">官方</a>)</p>
-<h2 id="语料众览"><a href="#语料众览" class="headerlink" title="语料众览"></a>语料众览</h2><p>特征：</p>
+        <p>&emsp;&emsp;这篇论文主要是关于阅读理解任务，是我今年上半年关注阅读理解任务时阅读的论文，当时读的有点懵，今天无意间浏览，有过一些积累回头再一次阅读，发现当时没懂的今天完全懂了，对整个论文的核心思想也彻底把握住，兴致起来写下这篇博文跟大家分享我的收获。</p>
+<h2 id="简要总结"><a href="#简要总结" class="headerlink" title="简要总结"></a>简要总结</h2><p>&emsp;&emsp;本文主要工作和创新点是针对注意力机制进行了改进，提出了一个新的概念<em>history of word</em>。顾名思义，“词的历史信息”！当文本在RNN等网络中“流动”的时候会产生对应文本中词的信息，例如在LSTM中，每个词会产生hidden的向量表示，传统的注意力机制并没有考虑<em>词的历史信息</em>，而本文的主要创新点就在于考虑<em>history of word</em>进行计算注意力权重改进注意力机制，并且针对阅读理解任务构建了一个模型架构并且取得优异的效果。<br>&emsp;&emsp;总之，本文的创新是有理有据的，工作内容充实，是一篇好论文，改进的注意力机制可以探索在其他任务上的应用。</p>
+<h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>&emsp;&emsp;本文先是简介阅读理解任务，并且提出了当前的工作并不能完整考虑段落或者问题的不同层级信息，以图像识别为例，可以从像素、笔画和形状来综合考虑。然后分析得出，如果考虑所有层次的信息，模型将太复杂并且难以学习，推测之前的工作因此才没有考虑所有层次信息，这里提出了一个注意评分函数来利用所有层次信息但是确实轻量级的，原文是这样的</p>
 <blockquote>
-<ul>
-<li>所有问题都是真实的，匿名用户查询发布到必应搜索引擎，问题不会很简明，可能比较模糊。</li>
-<li>相关段落是来自网页</li>
-<li>所有答案是人给出的</li>
-<li>部分问答有多个答案</li>
-<li>部分问题没有答案</li>
-<li>所有的问题都有标注信息(查询意图：数字，实体，地点，人物，描述)</li>
-<li>每个问题对应10个段落，这10个段落是有排序的。</li>
-<li>论文中提到数据生成时做了质量控制，对于那些人也无法确定的问题做了控制。</li>
-</ul>
+<p>To alleviate this challenge, we identify an attention scoring function utilizing all layers of representation with less training burden.</p>
 </blockquote>
-<p>数据的构建处理：</p>
-<blockquote>
-<ol>
-<li>问题：训练分类器筛选合适的问题</li>
-<li>段落：通过一个IR机器学习系统挑选</li>
-<li>答案：人工判断生成</li>
-<li>查询意图标注：标注使用训练的多类别svm分类器，测试性能准确率为90.31%</li>
-</ol>
-</blockquote>
-<p>统计信息：</p>
-<ol>
-<li>针对问题类型的统计信息</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Query包含</th>
-<th style="text-align:center">比例 %</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">what</td>
-<td style="text-align:center">42.2</td>
-</tr>
-<tr>
-<td style="text-align:center">how</td>
-<td style="text-align:center">15.3</td>
-</tr>
-<tr>
-<td style="text-align:center">where</td>
-<td style="text-align:center">4.4</td>
-</tr>
-<tr>
-<td style="text-align:center">when</td>
-<td style="text-align:center">2.0</td>
-</tr>
-<tr>
-<td style="text-align:center">why</td>
-<td style="text-align:center">1.8</td>
-</tr>
-<tr>
-<td style="text-align:center">who</td>
-<td style="text-align:center">1.7</td>
-</tr>
-<tr>
-<td style="text-align:center">which</td>
-<td style="text-align:center">1.4</td>
-</tr>
-</tbody>
-</table>
-<ol start="2">
-<li>针对答案类型的统计分布</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">anser 类型</th>
-<th style="text-align:center">问题占比 %</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">描述</td>
-<td style="text-align:center">52.6</td>
-</tr>
-<tr>
-<td style="text-align:center">数字</td>
-<td style="text-align:center">28.4</td>
-</tr>
-<tr>
-<td style="text-align:center">实体</td>
-<td style="text-align:center">10.5</td>
-</tr>
-<tr>
-<td style="text-align:center">地点</td>
-<td style="text-align:center">5.7</td>
-</tr>
-<tr>
-<td style="text-align:center">人物</td>
-<td style="text-align:center">2.7</td>
-</tr>
-</tbody>
-</table>
-<h2 id="论文实验分析"><a href="#论文实验分析" class="headerlink" title="论文实验分析"></a>论文实验分析</h2><h3 id="数据现象"><a href="#数据现象" class="headerlink" title="数据现象"></a>数据现象</h3><p>论文中提出答案类型不同的问题有着不一样现象：</p>
-<blockquote>
-<ul>
-<li>Yes/No的问题简单的二元分类</li>
-<li>实体类的问题答案一般是短语</li>
-<li>描述类哦问题答案一般比较长，需要多段落推理</li>
-</ul>
-</blockquote>
-<p>针对上述现象，论文中提出，针对不同的类别使用不同的评价方法</p>
-<blockquote>
-<ul>
-<li>使用ACC prf来评价数字类型的问题答案</li>
-<li>ROUGE-L和<a href="https://www.microsoft.com/en-us/research/publication/proposal-evaluating-answer-distillation-web-data/" target="_blank" rel="noopener">phrasing-aware</a>评价框架 来评价答案长的问题</li>
-</ul>
-</blockquote>
-<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><p>论文使用了两种类型的方法做了实验，分别是生成模型和完型填空语料上的模型<br><strong>生成模型实验</strong>：<br><img src="/2018/05/23/论文笔记-msmarco/ms1.png" alt=""></p>
-<p><strong>完型模型</strong><br><img src="/2018/05/23/论文笔记-msmarco/2.png" alt=""></p>
-<p>现有榜单性能：<br><img src="/2018/05/23/论文笔记-msmarco/3.png" alt=""></p>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>微软在初始发布了10W条的数据，在2018年4月23号又发布了100W级别的数据。</p>
 
       
     </div>
@@ -553,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/22/论文笔记-TriviaQA语料/" rel="next" title="论文笔记-TriviaQA语料">
-                <i class="fa fa-chevron-left"></i> 论文笔记-TriviaQA语料
+              <a href="/2018/09/04/ADL2018-自然语言培训记录/" rel="next" title="ADL2018 自然语言培训记录">
+                <i class="fa fa-chevron-left"></i> ADL2018 自然语言培训记录
               </a>
             
           </div>
@@ -562,10 +447,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/28/电影专栏1/" rel="prev" title="通天塔：一个关于隔阂与沟通的故事">
-                通天塔：一个关于隔阂与沟通的故事 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -760,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概要"><span class="nav-number">1.</span> <span class="nav-text">概要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语料众览"><span class="nav-number">2.</span> <span class="nav-text">语料众览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论文实验分析"><span class="nav-number">3.</span> <span class="nav-text">论文实验分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据现象"><span class="nav-number">3.1.</span> <span class="nav-text">数据现象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验"><span class="nav-number">3.2.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-number">3.3.</span> <span class="nav-text">补充</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简要总结"><span class="nav-number">1.</span> <span class="nav-text">简要总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动机"><span class="nav-number">2.</span> <span class="nav-text">动机</span></a></li></ol></div>
             
 
           </div>
