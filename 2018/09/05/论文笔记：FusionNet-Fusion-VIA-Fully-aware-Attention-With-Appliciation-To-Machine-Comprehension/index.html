@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/09/05/论文笔记：FusionNet-Fusion-VIA-Fully-aware-Attention-With-Appliciation-To-Machine-Comprehension/2.png">
 <meta property="og:image" content="http://yoursite.com/2018/09/05/论文笔记：FusionNet-Fusion-VIA-Fully-aware-Attention-With-Appliciation-To-Machine-Comprehension/3.png">
 <meta property="og:image" content="http://yoursite.com/2018/09/05/论文笔记：FusionNet-Fusion-VIA-Fully-aware-Attention-With-Appliciation-To-Machine-Comprehension/4.png">
-<meta property="og:updated_time" content="2018-09-06T06:20:53.092Z">
+<meta property="og:updated_time" content="2018-09-06T06:22:23.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记：FusionNet:Fusion VIA Fully-aware Attention With Appliciation To Machine Comprehension">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;这篇论文主要是关于阅读理解任务，是我今年上半年关注阅读理解任务时阅读的论文，当时读的有点懵，今天无意间浏览，有过一些积累回头再一次阅读，发现当时没懂的今天完全懂了，对整个论文的核心思想也彻底把握住，兴致起来写下这篇博文跟大家分享我的收获。 简要总结&amp;emsp;&amp;emsp;本文主要工作和创新点是针对注意力机制进行了改进，提出了一个新的概念history of word。顾名思">
@@ -408,7 +408,9 @@
 </blockquote>
 </li>
 </ul>
-<p>2.两段文本A和B， A:{h<sub>1</sub><sup>A</sup>,…,h<sub>m</sub><sup>A</sup>}，B:{h<sub>1</sub><sup>B</sup>,…,h<sub>n</sub><sup>B</sup>}， 对应的 HoWA:{HoW<sub>1</sub><sup>A</sup>,…,HoW<sub>m</sub><sup>A</sup>}，HoWB:{HoW<sub>1</sub><sup>B</sup>,…,HoW<sub>n</sub><sup>B</sup>}， 将B融合到A，标准的注意力机制是这样计算的<br><img src="/2018/09/05/论文笔记：FusionNet-Fusion-VIA-Fully-aware-Attention-With-Appliciation-To-Machine-Comprehension/3.png" alt="标准的注意力计算"></p>
+<ol start="2">
+<li>两段文本A和B， A:{h<sub>1</sub><sup>A</sup>,…,h<sub>m</sub><sup>A</sup>}，B:{h<sub>1</sub><sup>B</sup>,…,h<sub>n</sub><sup>B</sup>}， 对应的 HoWA:{HoW<sub>1</sub><sup>A</sup>,…,HoW<sub>m</sub><sup>A</sup>}，HoWB:{HoW<sub>1</sub><sup>B</sup>,…,HoW<sub>n</sub><sup>B</sup>}， 将B融合到A，标准的注意力机制是这样计算的<br><img src="/2018/09/05/论文笔记：FusionNet-Fusion-VIA-Fully-aware-Attention-With-Appliciation-To-Machine-Comprehension/3.png" alt="标准的注意力计算"></li>
+</ol>
 <p>本文提出的Fully-aware attention，是只修改标准注意力机制计算过程的第一步，</p>
 <center><strong>S(h<sub>i</sub><sup>A</sup>,h<sub>i</sub><sup>B</sup>) ==&gt; S(HoW<sub>i</sub><sup>A</sup>, HoW<sub>j</sub><sup>B</sup>)</strong></center>
 
